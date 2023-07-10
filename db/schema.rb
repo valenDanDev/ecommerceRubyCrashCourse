@@ -36,11 +36,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_06_201642) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "model_names", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "order_items", force: :cascade do |t|
     t.integer "quantity"
     t.decimal "subtotal"

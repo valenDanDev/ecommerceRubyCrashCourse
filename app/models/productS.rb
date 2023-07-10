@@ -1,4 +1,5 @@
 class ProductS < ApplicationRecord
+  self.table_name = "Productst"
   has_many :product_categories
   has_many :categories, through: :product_categories
   
