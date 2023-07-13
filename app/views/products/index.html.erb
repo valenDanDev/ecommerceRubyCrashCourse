@@ -1,13 +1,25 @@
-<%= stylesheet_link_tag "style.css" %>
-<%= javascript_include_tag "alert.js" %>
-<h1>Products</h1>
-<%= image_tag "lol.jpg",height:200 %>
-    <ul>
-        <% @products.each do |product| %>
-            <li>
-                <strong><%= product.name %>:</strong>
-                <%= link_to "See more", product %>
-            </li>
+<h1>TECNO LOVERS</h1>
+
+<div class="product-cards">
+  <% @products.each do |product| %>
+    <div class="product-card">
+      <% if product.image_url.present? %>
+        <%= image_tag product.image_url, alt: "#{product.name} image", class: "product-image" %>
+      <% else %>
+        <div class="no-image">No image available</div>
+      <% end %>
+      <div class="product-details">
+        <h2><%= product.name %></h2>
+        <p><%= product.description %></p>
+        <p class="price">Price: <%= product.price %></p>
+
+        <% product_category = ProductCategory.find_by(product_id: product.id) %>
+        <% if product_category %>
+          <p>Category: <%= product_category.category.name %></p>
+        <% else %>
+          <p>Category: N/A</p>
         <% end %>
-    </ul>
-    <%= link_to "New Product", new_product_path %>
+      </div>
+    </div>
+  <% end %>
+</div>

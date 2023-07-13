@@ -1,0 +1,13 @@
+<h1>TECNO LOVERS</h1>
+<h2>Categories<h2>
+<div class="product-cards">
+  <% @categories.each do |categories| %>
+    <div class="product-card">
+
+      <div class="product-details">
+        <h2><%= categories.name %></h2>
+      </div>
+    </div>
+  <% end %>
+</div>
+
