@@ -13,11 +13,16 @@
         <p><%= product.description %></p>
         <p class="price">Price: <%= product.price %></p>
 
-        <% product_category = ProductCategory.find_by(product_id: product.id) %>
-        <% if product_category %>
-          <p>Category: <%= product_category.category.name %></p>
+        <% product_categories = ProductCategory.where(product_id: product.id) %>
+        <% if product_categories.any? %>
+          <p>Categories:</p>
+          <ul>
+            <% product_categories.each do |product_category| %>
+              <li><%= product_category.category.name %></li>
+            <% end %>
+          </ul>
         <% else %>
-          <p>Category: N/A</p>
+          <p>Categories: N/A</p>
         <% end %>
       </div>
     </div>
