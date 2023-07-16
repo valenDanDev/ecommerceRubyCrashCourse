@@ -66,12 +66,12 @@ class ProductsController  < ApplicationController
         { name: 'Wireless Earbuds', description: 'True wireless earbuds for convenient and high-quality audio experience', image_url: 'https://example.com/wireless_earbuds.jpg', price: rand(50..200), categories: ['audio'] },
         { name: 'Virtual Reality Headset', description: 'Immersive virtual reality headset for interactive experiences', image_url: 'https://example.com/vr_headset.jpg', price: rand(200..800), categories: ['XR','multimedia'] }
       ]
-  
+
       products.each do |product_data|
         categories = product_data[:categories].map do |category_name|
           Category.find_or_create_by(name: category_name)
         end
-  
+
         product = Product.create(
           name: product_data[:name],
           description: product_data[:description],
@@ -79,7 +79,7 @@ class ProductsController  < ApplicationController
           price: product_data[:price]
         )
         puts "Product ID: #{product.id}"
-        
+
         categories.each do |category|
           product_category = ProductCategory.new(product_id: product.id, category_id: category.id)
           if product_category.save
@@ -91,11 +91,11 @@ class ProductsController  < ApplicationController
         end
       end
     end
+
+    # def indexCategory
+    #   category = params[:category]
+    #   # Utiliza el nombre de la categoría para filtrar los productos correspondientes
+    #   @products = Product.where(category: category)
+    # end
   end
-  
- 
-  
-  
-  
-  
 end

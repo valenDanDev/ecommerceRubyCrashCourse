@@ -55,15 +55,18 @@ class CategoryController < ApplicationController
   def generate_dummy_data
     if Category.count.zero?
       products = [
-        { name: 'remote control'},
-        { name: 'communication' },
-        { name: 'gaming'},
-        { name: 'productivity' },
-        { name: 'multimedia' },
-        { name: "audio"},
-        { name: "XR"} 
+        { name: 'Smartphones'},
+        { name: 'Televisions' },
+        { name: 'Computers'},
+        { name: 'Game Consoles' },
+        { name: 'Cameras' },
+        { name: "Smart watches"},
+        { name: "Speakers"},
+        { name: "Drones"},
+        { name: "Headphones"}
+
       ]
-  
+
       products.each do |categories|
         Category.create(
           name: categories[:name]
