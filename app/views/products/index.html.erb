@@ -1,4 +1,26 @@
-<h1>TECNO LOVERS</h1>
+<%= stylesheet_link_tag "index.css" %>
+<div class="header">
+    <h1>TECNO LOVERS</h1>
+</div>
+
+<div class="product-cards">
+  <% categories = ['Smartphones', 'Televisions', 'Computers', 'Game consoles', 'Cameras', 'Smart watches', 'Speakers', 'Drones', 'Headphones'] %>
+  <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Speaker.png', 'Drone.png', 'Headphone.png'] %>
+
+  <% categories.each_with_index do |category, index| %>
+    <% img = images[index] %>
+    <div class="product-card">
+      <div class="product-details">
+        <h2><%= category %></h2>
+        <%= link_to category_path(category), class: "product-link" do %>
+          <%= image_tag img, alt: "#{category} image", class: "product-image" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
 
 <h2>Items in Cart:</h2>
 <% if @cart.present? %>
@@ -35,11 +57,6 @@
         <% end %>
 
 <%= button_to 'Add to Cart', add_item_cart_path(product_id: product.id), method: :post %>
-
-
-
-
-
 
       </div>
     </div>
