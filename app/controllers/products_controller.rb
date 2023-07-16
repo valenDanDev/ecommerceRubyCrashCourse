@@ -5,6 +5,11 @@ class ProductsController  < ApplicationController
     generate_dummy_data if @products.empty?
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+  
+
   # GET /product_s/new
   def new
     @product = Product.new

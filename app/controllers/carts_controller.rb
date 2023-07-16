@@ -1,61 +1,47 @@
 class CartsController < ApplicationController
     # GET /carts
     def show
-        @cart = Cart.find(params[:id])
-        @product = Product.find(params[:product_id])
-      end
-  
-    # POST /carts
-    def create
-      @cart = Cart.new
-      @cart.user = current_user # Assuming you have authentication and current_user method
-      
-      if @cart.save
-        redirect_to @cart, notice: 'Cart was successfully created.'
-      else
-        render :new
-      end
-    end
-  
-    # PATCH/PUT /carts/:id
-    def update
-      @cart = Cart.find(params[:id])
-      
-      if @cart.update(cart_params)
-        redirect_to @cart, notice: 'Cart was successfully updated.'
-      else
-        render :edit
-      end
-    end
-  
-    # DELETE /carts/:id
-    def destroy
-      @cart = Cart.find(params[:id])
-      @cart.destroy
-      
-      redirect_to root_path, notice: 'Cart was successfully destroyed.'
+      @render_cart = false
     end
   
     # POST /carts/:id/add_item/:product_id
     def add_item
-      puts "Hello, the add_item action was called!"
-      @product = Product.find(params[:product_id])
-      puts "Product Name: #{@product.name}"
-      puts "Product Price: #{@product.price}"
-      
-      ##@cart.total_items = 1
-      ##@cart.total_price = @product.price
-      @cart = Cart.find_or_create_by(total_items: 1, total_price: @product.price)
-     
-      @product = Product.find(params[:product_id])
-      @cart_item = @cart.cart_items.find_or_initialize_by(product_id: @product.id,subtotal: @product.price)
-      @cart_item.quantity ||= 0
-      @cart_item.quantity += 1
-      
-      if @cart_item.save
-        flash[:notice] = 'Item was successfully added to the cart.'
+      @product = Product.find_by(id: params[:id])
+      quantity = params[:quantity].to_i
+      current_orderable = @cart.cart_items.find_by(product_id: @product.id)
+      if current_orderable && quantity > 0
+        puts "ACTUALIZAR carro"
+        current_orderable.update(quantity: quantity, subtotal: @product.price * quantity)
+      elsif quantity <= 0
+        puts "NO crear nuevo carro"
+        current_orderable.destroy if current_orderable
       else
-        render :show
+        puts "crear nuevo carro"
+        @cart.cart_items.create(product: @product, quantity: quantity, subtotal: @product.price * quantity)
+      end
+  
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [turbo_stream.replace('cart',
+                                                     partial: 'carts/cart',
+                                                     locals: { cart: @cart }),
+                                turbo_stream.replace(@product)]
+        end
+      end
+    end
+    
+    def remove
+      cart_item = CartItem.find_by(id: params[:id])
+      cart_item.destroy if cart_item
+    
+      @cart.reload  # Reload the @cart object to reflect the changes
+    
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace('cart',
+                                                    partial: 'carts/cart',
+                                                    locals: { cart: @cart })
+        end
       end
     end
     

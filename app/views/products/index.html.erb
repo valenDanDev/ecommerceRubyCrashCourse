@@ -1,4 +1,4 @@
-<h1>TECNO LOVERS</h1>
+<!--<h1>TECNO LOVERS</h1>
 
 <h2>Items in Cart:</h2>
 <% if @cart.present? %>
@@ -34,7 +34,7 @@
           <p>Categories: N/A</p>
         <% end %>
 
-<%= button_to 'Add to Cart', add_item_cart_path(product_id: product.id), method: :post %>
+
 
 
 
@@ -44,5 +44,20 @@
       </div>
     </div>
   <% end %>
+</div> -->
+
+<p style="color: green"><%= notice %></p>
+
+<h1>TECNO LOVERS</h1>
+
+<div id="products" >
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
 </div>
+
+<%= link_to "New product", new_product_path %>
 

@@ -1,9 +1,7 @@
-<h1>Carts</h1>
-
-<ul>
-  <% @carts.each do |cart| %>
-    <li>
-      <%= link_to "View Cart ##{cart.id}", cart_path(cart) %>
-    </li>
-  <% end %>
-</ul>
+<h1>Your Cart</h1>
+<% @cart.cart_items.each do |cart_item| %>
+  <% product = cart_item.product %>
+  <p><%= product.name %> * <%= cart_item.quantity %> = $<%= product.price * cart_item.quantity %></p>
+<% end %>
+<p>Your total product quantity $<%= @cart.totalUnits %> </p>
+<p>Your total is $<%= @cart.total %> </p>
