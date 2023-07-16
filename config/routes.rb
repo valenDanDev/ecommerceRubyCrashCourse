@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "products#index"
-  resources :products
+  resources :products 
+  post 'add_item/:product_id', to: 'carts#add_item', as: 'add_item_cart'
+
+  
+
 end

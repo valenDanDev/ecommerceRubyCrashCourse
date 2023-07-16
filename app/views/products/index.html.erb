@@ -1,5 +1,14 @@
 <h1>TECNO LOVERS</h1>
 
+<h2>Items in Cart:</h2>
+<% if @cart.present? %>
+  <% @cart.cart_items.each do |cart_item| %>
+    <p><%= cart_item.product.name %> - Quantity: <%= cart_item.quantity %></p>
+  <% end %>
+<% else %>
+  <p>Your cart is empty.</p>
+<% end %>
+
 <div class="product-cards">
   <% @products.each do |product| %>
     <div class="product-card">
@@ -24,7 +33,16 @@
         <% else %>
           <p>Categories: N/A</p>
         <% end %>
+
+<%= button_to 'Add to Cart', add_item_cart_path(product_id: product.id), method: :post %>
+
+
+
+
+
+
       </div>
     </div>
   <% end %>
 </div>
+
