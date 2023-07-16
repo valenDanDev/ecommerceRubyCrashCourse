@@ -1,4 +1,4 @@
-class CreateModels < ActiveRecord::Migration[6.0]
+class ModifyDatabase4 < ActiveRecord::Migration[7.0]
   def change
     create_table :cart_items do |t|
       t.references :cart, foreign_key: true
@@ -9,7 +9,6 @@ class CreateModels < ActiveRecord::Migration[6.0]
     end
 
     create_table :carts do |t|
-      t.references :user, foreign_key: true
       t.integer :total_items
       t.decimal :total_price
       t.timestamps
@@ -35,7 +34,6 @@ class CreateModels < ActiveRecord::Migration[6.0]
     end
 
     create_table :orders do |t|
-      t.references :user, foreign_key: true
       t.references :payment_method, foreign_key: true
       t.string :status
       t.decimal :total_price
@@ -64,12 +62,5 @@ class CreateModels < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    create_table :users do |t|
-      t.string :name
-      t.string :email
-      t.string :password
-      t.boolean :admin, default: false
-      t.timestamps
-    end
   end
 end

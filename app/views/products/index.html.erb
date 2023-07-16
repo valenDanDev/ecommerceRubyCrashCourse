@@ -1,13 +1,63 @@
-<%= stylesheet_link_tag "style.css" %>
-<%= javascript_include_tag "alert.js" %>
-<h1>Products</h1>
-<%= image_tag "lol.jpg",height:200 %>
-    <ul>
-        <% @products.each do |product| %>
-            <li>
-                <strong><%= product.name %>:</strong>
-                <%= link_to "See more", product %>
-            </li>
+<!--<h1>TECNO LOVERS</h1>
+
+<h2>Items in Cart:</h2>
+<% if @cart.present? %>
+  <% @cart.cart_items.each do |cart_item| %>
+    <p><%= cart_item.product.name %> - Quantity: <%= cart_item.quantity %></p>
+  <% end %>
+<% else %>
+  <p>Your cart is empty.</p>
+<% end %>
+
+<div class="product-cards">
+  <% @products.each do |product| %>
+    <div class="product-card">
+      <% if product.image_url.present? %>
+        <%= image_tag product.image_url, alt: "#{product.name} image", class: "product-image" %>
+      <% else %>
+        <div class="no-image">No image available</div>
+      <% end %>
+      <div class="product-details">
+        <h2><%= product.name %></h2>
+        <p><%= product.description %></p>
+        <p class="price">Price: <%= product.price %></p>
+
+        <% product_categories = ProductCategory.where(product_id: product.id) %>
+        <% if product_categories.any? %>
+          <p>Categories:</p>
+          <ul>
+            <% product_categories.each do |product_category| %>
+              <li><%= product_category.category.name %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>Categories: N/A</p>
         <% end %>
-    </ul>
-    <%= link_to "New Product", new_product_path %>
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  <% end %>
+</div> -->
+
+<p style="color: green"><%= notice %></p>
+
+<h1>TECNO LOVERS</h1>
+
+<div id="products" >
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product", new_product_path %>
+

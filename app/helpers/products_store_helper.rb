@@ -1,0 +1,2 @@
+module ProductsStoreHelper
+end
