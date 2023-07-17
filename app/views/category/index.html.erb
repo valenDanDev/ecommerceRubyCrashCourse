@@ -10,7 +10,8 @@
   <% end %>
 </div> -->
 
-<%= stylesheet_link_tag "index.css" %>
+<%= stylesheet_link_tag "header.css" %>
+<%= stylesheet_link_tag "card.css" %>
 <div class="header">
     <h1>TECNO LOVERS</h1>
 </div>
@@ -22,12 +23,13 @@
   <% categories.each_with_index do |category, index| %>
     <% img = images[index] %>
     <div class="product-card">
-      <div class="product-details">
-        <h2><%= category %></h2>
         <a href="/products/"> <%= image_tag img, alt: "#{category} image", class: "product-image" %></a>
+        <div class="intro">
+          <h1><%= category %></h2>
+          <p><%= "Info" %></p>
+        </div>
         <%# <%= link_to category_path(category), class: "product-link" do %>
         <%# <% end %>
-      </div>
     </div>
   <% end %>
 </div>

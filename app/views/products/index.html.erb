@@ -1,4 +1,4 @@
-<%= stylesheet_link_tag "index.css" %>
+<!--<%= stylesheet_link_tag "header.css" %>
 <div class="header">
     <h1>TECNO LOVERS</h1>
 </div>
@@ -42,5 +42,50 @@
       </div>
     </div>
   <% end %>
+</div> -->
+
+<%= stylesheet_link_tag "header.css" %>
+<div class="header">
+  <h1>TECNO LOVERS</h1>
 </div>
 
+<h2>Items in Cart:</h2>
+<% if @cart.present? %>
+  <% @cart.cart_items.each do |cart_item| %>
+    <p><%= cart_item.product.name %> - Quantity: <%= cart_item.quantity %></p>
+  <% end %>
+<% else %>
+  <p>Your cart is empty.</p>
+<% end %>
+
+<div class="product-cards">
+  <% @products.each do |product| %>
+    <% product_categories = ProductCategory.where(product_id: product.id) %>
+    <% if product_categories.any? %>
+      <% category_names = product_categories.map { |product_category| product_category.category.name } %>
+      <% if category_names.include?(@selected_category) %>
+        <div class="product-card">
+          <% if product.image_url.present? %>
+            <%= image_tag product.image_url, alt: "#{product.name} image", class: "product-image" %>
+          <% else %>
+            <div class="no-image">No image available</div>
+          <% end %>
+          <div class="product-details">
+            <h2><%= product.name %></h2>
+            <p><%= product.description %></p>
+            <p class="price">Price: <%= product.price %></p>
+            <p>Categories:</p>
+            <ul>
+              <% product_categories.each do |product_category| %>
+                <% if product_category.category.name == @selected_category %>
+                  <li><%= product_category.category.name %></li>
+                <% end %>
+              <% end %>
+            </ul>
+            <%= button_to 'Add to Cart', add_item_cart_path(product_id: product.id), method: :post %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
