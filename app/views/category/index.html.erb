@@ -9,12 +9,81 @@
     </div>
   <% end %>
 </div> -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <%= stylesheet_link_tag "style.css" %>
+<%= stylesheet_link_tag "slider.css" %>
 <%= stylesheet_link_tag "header.css" %>
 <%= stylesheet_link_tag "card.css" %>
-<div class="header">
+<%# <div class="header">
     <h1>TECNO LOVERS</h1>
-</div>
+</div> %>
+<header class="header">
+
+  <a class="logo">
+    <img src="logo.jpg" alt="Logo" />
+    <i class="fas fa-store"></i> shopie
+  </a>
+
+
+  <form action="" class="search-form">
+    <input type="search" id="search-box" placeholder="Search here...">
+    <label for="search-box" class="fas fa-search"></label>
+  </form>
+
+  <div class="icons">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <a href="login.php" class="fas fa-user"></a>
+    <a href="" class="fas fa-shopping-cart"></a>
+  </div>
+</header>
+
+<section class="home" id="home">
+  <div class="swiper-container home-slider">
+    <div class="swiper-wrapper wrapper">
+
+      <div class="swiper-slide slide">
+        <div class="content">
+          <span>Nuestros platos especiales</span>
+          <h3>Fideos picantes</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
+          <a href="#" class="btn">Buy now</a>
+        </div>
+        <div class="image">
+          <%= image_tag("Camera.png", alt: "") %>
+        </div>
+      </div>
+
+      <div class="swiper-slide slide">
+        <div class="content">
+          <span>Nuestros platos especiales</span>
+          <h3>Pollo frito</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
+          <a href="#" class="btn">Buy now</a>
+        </div>
+        <div class="image">
+          <%= image_tag("Computer.png", alt: "") %>
+        </div>
+      </div>
+
+      <div class="swiper-slide slide">
+        <div class="content">
+          <span>Nuestros platos especiales</span>
+          <h3>pizza caliente</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
+          <a href="#" class="btn">Buy now</a>
+        </div>
+        <div class="image">
+          <%= image_tag("Drone.png", alt: "") %>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
 
 <div class="product-cards">
   <% categories = ['Smartphones', 'Televisions', 'Computers', 'Game consoles', 'Cameras', 'Smart watches', 'Speakers', 'Drones', 'Headphones'] %>
@@ -33,3 +102,6 @@
     </div>
   <% end %>
 </div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="<%= asset_path('script.js') %>"></script>

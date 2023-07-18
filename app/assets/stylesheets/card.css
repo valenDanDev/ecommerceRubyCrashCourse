@@ -20,12 +20,6 @@
     background: none;
     border-radius: 4px;
     overflow: hidden;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    -moz-box-shadow: 30px 10px 0 #5200ff;
-    -webkit-box-shadow: 30px 10px 0 #5200ff;
-    box-shadow: 30px 10px 0 #5200ff;
 }
 
 .intro{
