@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   post 'carts/remove'
 
   resources :order, only: [:new, :create]
-  get 'shipping/success', to: 'shipping#success', as: 'success_shipping'
-
+  get '/shipping/new', to: 'shipping#new', as: 'new_shipping'
+  post '/shipping', to: 'shipping#create', as: 'shipping'
+  get '/shipping/success', to: 'shipping#success', as: 'success_shipping'
 
 
 
