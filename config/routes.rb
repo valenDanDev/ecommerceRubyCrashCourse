@@ -9,10 +9,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root "products#index"
-  resources :products 
+  #get "/", to: "landing#index"
+  root "landing#index"
+  #resources :landing
   #post 'add_item/:product_id', to: 'carts#add_item', as: 'add_item_cart'
 
-  
+  get "/products", to: "products#index"
+  get '/products/:id', to: 'products#show', as: 'product'
+  get '/products/new', to: 'products#new', as: 'new_product'
+  get '/products/:id/edit', to: 'products#edit', as: 'edit_product'
+
 
 end
