@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_16_022749) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_18_142827) do
   create_table "cart_items", force: :cascade do |t|
     t.integer "cart_id"
     t.integer "product_id"
@@ -43,30 +43,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_16_022749) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "productS_id"
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
     t.integer "quantity"
     t.decimal "subtotal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
-    t.index ["productS_id"], name: "index_order_items_on_productS_id"
+    t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "payment_method_id"
     t.string "status"
     t.decimal "total_price"
     t.datetime "order_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["payment_method_id"], name: "index_orders_on_payment_method_id"
-  end
-
-  create_table "payment_methods", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description"
-    t.boolean "enabled", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,11 +79,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_16_022749) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shippings", force: :cascade do |t|
+    t.string "fullname"
+    t.text "address"
+    t.string "email"
+    t.integer "phoneNumber"
+    t.string "bank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "products"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "products", column: "productS_id"
-  add_foreign_key "orders", "payment_methods"
+  add_foreign_key "order_items", "products"
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
 end

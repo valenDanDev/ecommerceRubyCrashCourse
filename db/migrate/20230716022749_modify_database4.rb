@@ -26,25 +26,30 @@ class ModifyDatabase4 < ActiveRecord::Migration[7.0]
     end
 
     create_table :order_items do |t|
-      t.references :order, foreign_key: true
-      t.references :productS, foreign_key: true
+      t.belongs_to :order, null: false, foreign_key: true
+      t.belongs_to :product, null: false, foreign_key: true
       t.integer :quantity
       t.decimal :subtotal
+
       t.timestamps
     end
 
     create_table :orders do |t|
-      t.references :payment_method, foreign_key: true
       t.string :status
       t.decimal :total_price
       t.datetime :order_date
+
       t.timestamps
     end
 
-    create_table :payment_methods do |t|
-      t.string :name, null: false
-      t.text :description
-      t.boolean :enabled, default: true
+    create_table :shippings do |t|
+      t.belongs_to :order, null: false, foreign_key: true
+      t.string :fullname
+      t.text :address
+      t.string :email
+      t.integer :phoneNumber
+      t.string :bank
+
       t.timestamps
     end
 

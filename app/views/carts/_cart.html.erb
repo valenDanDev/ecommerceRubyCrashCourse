@@ -6,7 +6,9 @@
     <%= render "carts/orderables" %>
     <p>total quantity units: <%= @cart.totalUnits %></p>
     <p>Total: <%= @cart.total %></p>
+    <%= link_to "Check out!", new_order_path, method: :post, class: "checkout-button" %>
   <% else %>
     <p>Your cart is empty</p>
   <% end %>
 <% end %>
+
