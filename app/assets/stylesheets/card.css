@@ -37,12 +37,12 @@ h1{
     font-size: 30px;
 }
 
-p{
+/* p{
     font-size: 20px;
     margin: 20px;
     visibility: hidden;
     opacity: 0;
-}
+} */
 
 .product-card:hover{
     cursor: pointer;
