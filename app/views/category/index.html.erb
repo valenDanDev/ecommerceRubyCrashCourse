@@ -1,5 +1,4 @@
-<h1>TECNO LOVERS</h1>
-<h2>Categories<h2>
+<!--
 <div class="product-cards">
   <% @categories.each do |categories| %>
     <div class="product-card">
@@ -9,5 +8,28 @@
       </div>
     </div>
   <% end %>
+</div> -->
+<%= stylesheet_link_tag "style.css" %>
+<%= stylesheet_link_tag "header.css" %>
+<%= stylesheet_link_tag "card.css" %>
+<div class="header">
+    <h1>TECNO LOVERS</h1>
 </div>
 
+<div class="product-cards">
+  <% categories = ['Smartphones', 'Televisions', 'Computers', 'Game consoles', 'Cameras', 'Smart watches', 'Speakers', 'Drones', 'Headphones'] %>
+  <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Speaker.png', 'Drone.png', 'Headphone.png'] %>
+
+  <% categories.each_with_index do |category, index| %>
+    <% img = images[index] %>
+    <div class="product-card">
+        <a href="/products/"> <%= image_tag img, alt: "#{category} image", class: "product-image" %></a>
+        <div class="intro">
+          <h1><%= category %></h2>
+          <p><%= "Info" %></p>
+        </div>
+        <%# <%= link_to category_path(category), class: "product-link" do %>
+        <%# <% end %>
+    </div>
+  <% end %>
+</div>

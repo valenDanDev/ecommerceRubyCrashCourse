@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   #resources :landing
   #post 'add_item/:product_id', to: 'carts#add_item', as: 'add_item_cart'
 
+  get "/home", to: "category#index"
   get "/products", to: "products#index"
   get '/products/:id', to: 'products#show', as: 'product'
   get '/products/new', to: 'products#new', as: 'new_product'
