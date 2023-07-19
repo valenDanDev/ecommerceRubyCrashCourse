@@ -1,0 +1,35 @@
+<!-- app/views/shipping/new.html.erb -->
+<h1>New Shipping</h1>
+
+<%= form_with(model: @shipping, url: shipping_path(order_id: params[:order_id]), local: true) do |form| %>
+  <!-- Form fields and labels -->
+  <div class="field">
+    <%= form.label :fullname %>
+    <%= form.text_field :fullname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phoneNumber %>
+    <%= form.number_field :phoneNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bank %>
+    <%= form.text_field :bank %>
+  </div>
+
+  <!-- Add other form fields as needed -->
+
+  <!-- Submit button -->
+  <%= form.submit "Create Shipping" %>
+<% end %>
