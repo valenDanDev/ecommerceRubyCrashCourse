@@ -1,6 +1,4 @@
 class Order < ApplicationRecord
-    belongs_to :user
-    belongs_to :payment_method
     has_many :order_items
     # Order attributes
     attribute :status, :string

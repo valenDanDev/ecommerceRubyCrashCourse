@@ -1,4 +1,4 @@
-class ModifyDatabase4 < ActiveRecord::Migration[7.0]
+class ModifyDatabase < ActiveRecord::Migration[7.0]
   def change
     create_table :cart_items do |t|
       t.references :cart, foreign_key: true
@@ -66,6 +66,5 @@ class ModifyDatabase4 < ActiveRecord::Migration[7.0]
       t.decimal :price
       t.timestamps
     end
-
   end
 end
