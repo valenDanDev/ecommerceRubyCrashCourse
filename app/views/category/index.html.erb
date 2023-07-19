@@ -1,14 +1,3 @@
-<!--
-<div class="product-cards">
-  <% @categories.each do |categories| %>
-    <div class="product-card">
-
-      <div class="product-details">
-        <h2><%= categories.name %></h2>
-      </div>
-    </div>
-  <% end %>
-</div> -->
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <!-- font awesome cdn link  -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -83,24 +72,7 @@
     <div class="swiper-pagination"></div>
   </div>
 </section>
-<!--
-<div class="product-cards">
-  <% categories = ['Smartphones', 'Televisions', 'Computers', 'Game consoles', 'Cameras', 'Smart watches', 'Speakers', 'Drones', 'Headphones'] %>
-  <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Speaker.png', 'Drone.png', 'Headphone.png'] %>
 
-  <% categories.each_with_index do |category, index| %>
-    <% img = images[index] %>
-    <div class="product-card">
-        <a href="/products/"> <%= image_tag img, alt: "#{category} image", class: "product-image" %></a>
-        <div class="intro">
-          <h1><%= category %></h2>
-          <p><%= "Info" %></p>
-        </div>
-        <%# <%= link_to category_path(category), class: "product-link" do %>
-        <%# <% end %>
-    </div>
-  <% end %>
-</div>-->
 <div class="product-cards">
  <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Speaker.png', 'Drone.png', 'Headphone.png'] %>
 <% @categories.each_with_index do |category,index| %>
@@ -112,7 +84,7 @@
       <h1><%= category.name %></h1>
 
     </div>
-     
+
     <p>watch products</p>
     <% end %>
   </div>
@@ -125,7 +97,7 @@
   $(document).ready(function() {
     $('.product-card').on('click', function() {
       var categoryId = $(this).data('category-id');
-      
+
       $.ajax({
         url: '/products',
         method: 'GET',

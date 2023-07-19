@@ -1,12 +1,45 @@
-<p style="color: green"><%= notice %></p>
+<!--<p style="color: green"><%= notice %></p>
 
 <%= render @product %>
 
 <div>
-<!--
-  <%= link_to "Edit this product", edit_product_path(@product) %> | -->
-  <%= link_to "Back to products", products_path %>
 
-<!--
-  <%= button_to "Destroy this product", @product, method: :delete %> -->
-</div>
+  <%= link_to "Edit this product", edit_product_path(@product) %>
+  <%= link_to "Back to products", products_path %>
+  <%= button_to "Destroy this product", @product, method: :delete %>
+
+</div>-->
+<%= stylesheet_link_tag "productDetail.css" %>
+<body class="bodyDetail">
+  <div class="cardDetail">
+    <div class="imgDetail"></div>
+      <img src="https://m.media-amazon.com/images/I/81xnSQAMDLL._AC_UF1000,1000_QL80_FMwebp_.jpg" alt="product">
+    <div class="details">
+      <div class="title">
+        <h3>Computer<br>
+          <small>Lenovo</small>
+        </h3>
+      </div>
+      <div class="description">
+        <h4>Description</h4>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled it to make a type
+          specimen book. It has survived not only five centuries, but also the leap into
+          electronic typesetting, remaining essentially unchanged. It was popularised in
+          the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.</p>
+      </div>
+      <div class="buy">
+        <div class="priceDetail">
+          <sup>$</sup>
+          <span>159</span>
+        </div>
+        <div class="btnBuy">
+          <a href="#">Buy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
