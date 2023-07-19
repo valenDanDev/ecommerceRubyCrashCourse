@@ -15,13 +15,17 @@
 
 .cardDetail{
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 600px;
+    width: 300px;
     height: 380px;
     background-color: #fff;
     box-shadow: 0 15px 45px rgba(0,0,0,0.25);
     overflow: hidden;
+    transition: 0.5s;
+}
+
+.cardDetail:hover {
+    width: 600px;
 }
 
 img {
@@ -40,7 +44,7 @@ img {
     transition: 0.5s;
 }
 
-.cardDetail:hover .imgDetail img{
+img:hover{
     transform: rotate(-35deg);
 }
 
@@ -53,7 +57,47 @@ img {
     min-width: 300px;
     background: #5200ff;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
     padding: 20px;
+    color: #fff;
+}
+
+.cardDetail .details::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #fff;
+}
+
+.cardDetail .details .title small{
+    font-weight: 200;
+    font-size: 0.9em;
+}
+
+.cardDetail .details .buy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardDetail .details .buy .price {
+    font-size: 1.5em;
+}
+
+.cardDetail .details .buy .btnBuy {
+    background: #fff;
+    padding: 0.5em 0.8em;
+    text-transform: uppercase;
+}
+
+.cardDetail .details .buy .btnBuy a {
+    text-decoration: none;
+    color: #5200ff ;
 }
