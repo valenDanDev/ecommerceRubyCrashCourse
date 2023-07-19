@@ -1,9 +1,22 @@
 class ProductsController  < ApplicationController
    # GET /product_s
    def index
-    @products = Product.all
-    generate_dummy_data if @products.empty?
+    if params[:category_id].present?
+      category = Category.find(params[:category_id])
+      @products = category.product
+    else
+      @products = Product.all
+      generate_dummy_data if @products.empty?
+    end
+  
+    @products ||= [] # Set @products to an empty array if it's nil
+  
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
+  
 
   def show
     @product = Product.find(params[:id])
@@ -60,16 +73,16 @@ class ProductsController  < ApplicationController
   def generate_dummy_data
     if Product.count.zero?
       products = [
-        { name: 'Cell Phone', description: 'Smartphone with advanced features', image_url: 'https://example.com/cell_phone.jpg', price: rand(300..1000), categories: ['communication','multimedia'] },
-        { name: 'Tablet', description: 'Portable tablet device with a large screen', image_url: 'https://example.com/tablet.jpg', price: rand(200..800), categories: ['multimedia'] },
-        { name: 'Computer', description: 'Desktop or laptop computer for various computing tasks', image_url: 'https://example.com/computer.jpg', price: rand(500..2000), categories: ['productivity'] },
-        { name: 'Headset', description: 'High-quality audio headset for immersive audio experience', image_url: 'https://example.com/headset.jpg', price: rand(50..300), categories: ['audio'] },
-        { name: 'Camera', description: 'Digital camera for capturing stunning photos and videos', image_url: 'https://example.com/camera.jpg', price: rand(200..1000), categories: ['multimedia'] },
-        { name: 'Drone', description: 'Aerial drone for photography and videography', image_url: 'https://example.com/drone.jpg', price: rand(300..1500), categories: ['remote control'] },
-        { name: 'Smartwatch', description: 'Wearable device with advanced features and health tracking', image_url: 'https://example.com/smartwatch.jpg', price: rand(100..500), categories: ['multimedia'] },
-        { name: 'Gaming Console', description: 'High-performance gaming console for immersive gaming experiences', image_url: 'https://example.com/gaming_console.jpg', price: rand(300..800), categories: ['gaming','multimedia'] },
-        { name: 'Wireless Earbuds', description: 'True wireless earbuds for convenient and high-quality audio experience', image_url: 'https://example.com/wireless_earbuds.jpg', price: rand(50..200), categories: ['audio'] },
-        { name: 'Virtual Reality Headset', description: 'Immersive virtual reality headset for interactive experiences', image_url: 'https://example.com/vr_headset.jpg', price: rand(200..800), categories: ['XR','multimedia'] }
+        { name: 'Cell Phone Samsung', description: 'Smartphone with advanced features', image_url: 'https://example.com/cell_phone.jpg', price: rand(300..1000), categories: ['Smartphones'] },
+        { name: 'Tv LG', description: 'Portable tablet device with a large screen', image_url: 'https://example.com/tablet.jpg', price: rand(200..800), categories: ['Televisions'] },
+        { name: 'Computer Lenovo', description: 'Desktop or laptop computer for various computing tasks', image_url: 'https://example.com/computer.jpg', price: rand(500..2000), categories: ['Computers'] },
+        { name: 'Xbox series X', description: 'High-quality audio headset for immersive audio experience', image_url: 'https://example.com/headset.jpg', price: rand(50..300), categories: ['Game Consoles'] },
+        { name: 'Camera 48 mpx', description: 'Digital camera for capturing stunning photos and videos', image_url: 'https://example.com/camera.jpg', price: rand(200..1000), categories: ['Cameras'] },
+        { name: 'smart watch apple', description: 'Aerial drone for photography and videography', image_url: 'https://example.com/drone.jpg', price: rand(300..1500), categories: ['Smart watches'] },
+        { name: 'Speaker JBL', description: 'Wearable device with advanced features and health tracking', image_url: 'https://example.com/smartwatch.jpg', price: rand(100..500), categories: ['Speakers'] },
+        { name: 'Super Drone', description: 'High-performance gaming console for immersive gaming experiences', image_url: 'https://example.com/gaming_console.jpg', price: rand(300..800), categories: ['Drones'] },
+        { name: 'Wireless Earbuds', description: 'True wireless earbuds for convenient and high-quality audio experience', image_url: 'https://example.com/wireless_earbuds.jpg', price: rand(50..200), categories: ['Headphones'] },
+        { name: 'Cell Phone Samsung Promax14', description: 'Immersive virtual reality headset for interactive experiences', image_url: 'https://example.com/vr_headset.jpg', price: rand(200..800), categories: ['Smartphones'] }
       ]
 
       products.each do |product_data|

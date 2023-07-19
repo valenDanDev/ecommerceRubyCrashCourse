@@ -83,7 +83,7 @@
     <div class="swiper-pagination"></div>
   </div>
 </section>
-
+<!--
 <div class="product-cards">
   <% categories = ['Smartphones', 'Televisions', 'Computers', 'Game consoles', 'Cameras', 'Smart watches', 'Speakers', 'Drones', 'Headphones'] %>
   <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Speaker.png', 'Drone.png', 'Headphone.png'] %>
@@ -100,7 +100,44 @@
         <%# <% end %>
     </div>
   <% end %>
-</div>
+</div>-->
+<div class="product-cards">
+ <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Speaker.png', 'Drone.png', 'Headphone.png'] %>
+<% @categories.each_with_index do |category,index| %>
+ <% img = images[index] %>
+  <div class="product-card" data-category-id="<%= category.id %>">
+ <%= image_tag img, alt: "#{category} image", class: "product-image" %>
+   <%= link_to products_path(category_id: category.id), class: "product-link" do %><
+    <div class="intro">
+      <h1><%= category.name %></h1>
+
+    </div>
+     
+    <p>watch products</p>
+    <% end %>
+  </div>
+<% end %>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="<%= asset_path('script.js') %>"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.product-card').on('click', function() {
+      var categoryId = $(this).data('category-id');
+      
+      $.ajax({
+        url: '/products',
+        method: 'GET',
+        data: { category_id: categoryId },
+        success: function(response) {
+          // Handle the response and update the product listing
+          // based on the filtered products
+        },
+        error: function() {
+          // Handle error
+        }
+      });
+    });
+  });
+</script>
