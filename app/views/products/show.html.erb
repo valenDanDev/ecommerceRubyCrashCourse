@@ -1,12 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<!--<p style="color: green"><%= notice %></p>
 
 <%= render @product %>
 
 <div>
-<!--
-  <%= link_to "Edit this product", edit_product_path(@product) %> | -->
-  <%= link_to "Back to products", products_path %>
 
-<!--
-  <%= button_to "Destroy this product", @product, method: :delete %> -->
-</div>
+  <%= link_to "Edit this product", edit_product_path(@product) %>
+  <%= link_to "Back to products", products_path %>
+  <%= button_to "Destroy this product", @product, method: :delete %>
+
+</div>-->
+<%= stylesheet_link_tag "productDetail.css" %>
+<body class="bodyDetail">
+  <div class="cardDetail">
+    <div class="imgDetail"></div>
+      <img src="https://m.media-amazon.com/images/I/81xnSQAMDLL._AC_UF1000,1000_QL80_FMwebp_.jpg" alt="product">
+    <div class="details">
+      <div class="title">
+        <h3>Computer<br>
+          <small>Lenovo</small>
+        </h3>
+      </div>
+      <div class="price"></div>
+      <div class="buy"></div>
+    </div>
+  </div>
+</body>

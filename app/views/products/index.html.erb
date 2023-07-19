@@ -29,15 +29,10 @@
 
 <p style="color: green"><%= notice %></p>
 
-<h1>TECNO LOVERS</h1>
-
-<div id="products" >
+<section id="products" >
   <% @products.each do |product| %>
     <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
   <% end %>
-</div>
+</section>
 
 <%= link_to "New product", new_product_path %>
