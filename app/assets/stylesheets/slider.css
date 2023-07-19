@@ -52,14 +52,14 @@ section:nth-child(even){
     display: inline-block;
     font-size: 1.7rem;
     color:#fff;
-    background: var(--black);
+    background: linear-gradient(#f3c6de, #5200ff);
     border-radius: .5rem;
     cursor: pointer;
     padding:.8rem 3rem;
 }
 
 .btn:hover{
-    background: var(--green);
+    background: #5200ff;
     letter-spacing: .1rem;
 }
 
@@ -380,7 +380,7 @@ header .icons #menu-bars{
     object-fit: cover;
 }
 
-.menu .box-container .box .image .fa-heart{
+.menu .box-container .box .image .fa-eye{
     position: absolute;
     top:2.5rem; right: 2.5rem;
     height: 5rem;
@@ -390,11 +390,11 @@ header .icons #menu-bars{
     font-size: 2rem;
     background: #fff;
     border-radius: 50%;
-    color:var(--black);
+    color:#ba0aeb;
 }
 
-.menu .box-container .box .image .fa-heart:hover{
-    background-color: var(--green);
+.menu .box-container .box .image .fa-eye:hover{
+    background-color: #0a1aeb;
     color:#fff;
 }
 
@@ -409,7 +409,7 @@ header .icons #menu-bars{
 
 .menu .box-container .box .content .stars i{
    font-size: 1.7rem;
-   color:var(--green);
+   color:#ffe700;
 }
 
 .menu .box-container .box .content h3{
@@ -425,7 +425,7 @@ header .icons #menu-bars{
 }
 
 .menu .box-container .box .content .price{
-    color:var(--green);
+    color: #7500a6;
     margin-left: 1rem;
     font-size: 2.5rem;
 }
