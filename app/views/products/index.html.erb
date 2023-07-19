@@ -1,50 +1,31 @@
-<!--<h1>TECNO LOVERS</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<%= stylesheet_link_tag "style.css" %>
+<%= stylesheet_link_tag "header.css" %>
+<%= stylesheet_link_tag "card.css" %>
+<%# <div class="header">
+    <h1>TECNO LOVERS</h1>
+</div> %>
+<header class="header">
 
-<h2>Items in Cart:</h2>
-<% if @cart.present? %>
-  <% @cart.cart_items.each do |cart_item| %>
-    <p><%= cart_item.product.name %> - Quantity: <%= cart_item.quantity %></p>
-  <% end %>
-<% else %>
-  <p>Your cart is empty.</p>
-<% end %>
-
-<div class="product-cards">
-  <% @products.each do |product| %>
-    <div class="product-card">
-      <% if product.image_url.present? %>
-        <%= image_tag product.image_url, alt: "#{product.name} image", class: "product-image" %>
-      <% else %>
-        <div class="no-image">No image available</div>
-      <% end %>
-      <div class="product-details">
-        <h2><%= product.name %></h2>
-        <p><%= product.description %></p>
-        <p class="price">Price: <%= product.price %></p>
-
-        <% product_categories = ProductCategory.where(product_id: product.id) %>
-        <% if product_categories.any? %>
-          <p>Categories:</p>
-          <ul>
-            <% product_categories.each do |product_category| %>
-              <li><%= product_category.category.name %></li>
-            <% end %>
-          </ul>
-        <% else %>
-          <p>Categories: N/A</p>
-        <% end %>
+  <a class="logo">
+    <img src="logo.jpg" />
+    <i class="fas fa-store"></i> TECNO LOVERS
+  </a>
 
 
+  <form action="" class="search-form">
+    <input type="search" id="search-box" placeholder="Search here...">
+    <label for="search-box" class="fas fa-search"></label>
+  </form>
 
-
-
-
-
-
-      </div>
-    </div>
-  <% end %>
-</div> -->
+  <div class="icons">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <a href="login.php" class="fas fa-user"></a>
+    <a href="" class="fas fa-shopping-cart"></a>
+  </div>
+</header>
+<h3 class="sub-heading">Products</h3>
+<h1 class="heading">Products + Category</h1>
 
 <p style="color: green"><%= notice %></p>
 

@@ -1,86 +1,6 @@
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-
-<!--<div id="<%= dom_id product %>" class="product-card">
-  <% if product.image_url.present? %>
-    <div class="product-image">
-      <%= image_tag product.image_url, alt: "#{product.name} image" %>
-    </div>
-  <% else %>
-    <div class="no-image">No image available</div>
-  <% end %>
-  <div class="product-details">
-    <div>
-      <strong>Name:</strong>
-      <%= product.name %>
-    </div>
-    <div>
-      <strong>Description:</strong>
-      <%= product.description %>
-    </div>
-    <div>
-      <strong>Price:</strong>
-      <%= product.price %>
-    </div>
-    <% product_categories = ProductCategory.where(product_id: product.id) %>
-    <% if product_categories.any? %>
-      <p>Categories:</p>
-      <ul>
-        <% product_categories.each do |product_category| %>
-          <li><%= product_category.category.name %></li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>Categories: N/A</p>
-    <% end %>
-    <%= form_with(url: carts_add_item_path) do |f| %>
-      <%= f.hidden_field :id, value: product.id %>
-      <%= f.number_field :quantity, value: 0, min: 1 %>
-      <%= f.submit "Add To Cart" %>
-    <% end %>
-  </div>
-</div>-->
-
-
-<%# <% @products = [
-    { name: "Comida deliciosa", description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.", price: 12.99, image_url: "Camera.png" },
-    { name: "Comida deliciosa", description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.", price: 12.99, image_url: "Camera.png" },
-    { name: "Comida deliciosa", description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.", price: 12.99, image_url: "Camera.png" }
-    # Agrega más productos aquí si es necesario
-] %>
-
-<%= stylesheet_link_tag "style.css" %>
-<%= stylesheet_link_tag "header.css" %>
-<%= stylesheet_link_tag "card.css" %>
-<%# <div class="header">
-    <h1>TECNO LOVERS</h1>
-</div> %>
-<header class="header">
-
-  <a class="logo">
-    <img src="logo.jpg" />
-    <i class="fas fa-store"></i> TECNO LOVERS
-  </a>
-
-
-  <form action="" class="search-form">
-    <input type="search" id="search-box" placeholder="Search here...">
-    <label for="search-box" class="fas fa-search"></label>
-  </form>
-
-  <div class="icons">
-    <div id="menu-btn" class="fas fa-bars"></div>
-    <a href="login.php" class="fas fa-user"></a>
-    <a href="" class="fas fa-shopping-cart"></a>
-  </div>
-</header>
-
 <section class="menu" id="menu">
-  <h3 class="sub-heading">Products</h3>
-  <h1 class="heading">Products + Category</h1>
   <div class="box-container">
     <% if @products.present? %>
-      <% @products.each do |product| %>
         <div class="box">
           <div class="image">
             <%= image_tag product[:image_url], alt: "" %>
@@ -105,7 +25,6 @@
             <% end %>
           </div>
         </div>
-      <% end %>
     <% else %>
       <p>No products found.</p>
     <% end %>
