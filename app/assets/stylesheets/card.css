@@ -81,3 +81,9 @@ h1{
     font-weight: bold;
     color: #008000;
 }
+
+section#products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
