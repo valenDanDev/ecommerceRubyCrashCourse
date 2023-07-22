@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cartUpdate', to: 'carts#_cart'
   get 'carts', to: 'carts#show'
   get 'category/index'
   get 'products/index'

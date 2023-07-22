@@ -1,14 +1,34 @@
-<%= turbo_frame_tag "cart" do %>
-  <h1>Cart</h1>
 
-  <% if @cart.cart_items.count > 0 %>
-    <% puts "Showing cart items" %>
-    <%= render "carts/orderables" %>
-    <p>total quantity units: <%= @cart.totalUnits %></p>
-    <p>Total: <%= @cart.total %></p>
-    <%= link_to "Check out!", new_order_path, method: :post, class: "checkout-button" %>
-  <% else %>
-    <p>Your cart is empty</p>
+<% if show_cart? %>
+<h1>Cart</h1>
+<% if @cart.cart_items.count > 0 %>
+  <% @cart.cart_items.each do |cart_item| %>
+    <% product = cart_item.product %>
+    <div id="cart-<%= product.id %>">
+      <div style="display:flex;justify-content:space-between;margin: 0em 5em;">
+        <strong>Name:</strong>
+        <%= product.name %>
+        <strong>Description:</strong>
+        <%= product.description %>
+        <strong>Price:</strong>
+        <%= product.price %>
+        <%= form_with(url: carts_add_item_path, method: :post, class: "update-cart-form", data: { product_id: product.id }) do |f| %>
+          <%= f.hidden_field :id, value: product.id %>
+          <%= f.number_field :quantity, value: cart_item.quantity, min: 0 %>
+          <%= f.submit "Update" %>
+        <% end %>
+        <%= form_with(url: carts_remove_path(id: cart_item.id), method: :post) do |f| %>
+          <%= f.submit "Remove" %>
+        <% end %>
+        <strong>Subtotal:</strong>
+        <%= cart_item.subtotal %>
+      </div>
+    </div>
   <% end %>
+  <p>total quantity units: <%= @cart.totalUnits %></p>
+  <p>Total: <%= @cart.total %></p>
+  <%= link_to "Check out!", new_order_path, method: :post, class: "checkout-button" %>
+<% else %>
+  <p>Your cart is empty</p>
 <% end %>
-
+<% end %>
