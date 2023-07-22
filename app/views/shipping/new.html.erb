@@ -1,4 +1,10 @@
 <!-- app/views/shipping/new.html.erb -->
+
+
+
+<div id="order-items-container">
+   <%= render 'order/order_items', order: @order %>
+</div>
 <h1>New Shipping</h1>
 
 <%= form_with(model: @shipping, url: shipping_path(order_id: params[:order_id]), local: true) do |form| %>
@@ -32,4 +38,5 @@
 
   <!-- Submit button -->
   <%= form.submit "Create Shipping" %>
+
 <% end %>
