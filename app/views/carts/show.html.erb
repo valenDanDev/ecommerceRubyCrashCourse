@@ -5,4 +5,5 @@
 <% end %>
 <p>Your total product quantity $<%= @cart.totalUnits %> </p>
 <p>Your total is $<%= @cart.total %> </p>
-<button type="button">check out!</button>
+<a href="<%= products_path %>"><button type="button">Continue shopping</button></a>
+ <%= link_to "Check out!", new_order_path, method: :post, class: "checkout-button" %>

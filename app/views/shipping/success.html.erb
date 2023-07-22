@@ -15,4 +15,13 @@
   Bank: <%= @shipping.bank %>
 </p>
 
+
+<div id="order-items-container">
+   <%= render 'order/order_items', order: @order %>
+</div>
+<br>
 <p>Thank you for your shipping request.</p>
+
+<a href="<%= products_path %>"><button type="button">Back to store</button></a>
+
+
