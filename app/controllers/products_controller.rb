@@ -1,22 +1,23 @@
 class ProductsController  < ApplicationController
    # GET /product_s
    def index
+    @products ||= [] # Set @products to an empty array if it's nil
+
     if params[:category_id].present?
       category = Category.find(params[:category_id])
-      @products = category.product
+      @products = category.products.paginate(page: params[:page], per_page: 6)
     else
-      @products = Product.all
+      @products = Product.paginate(page: params[:page], per_page: 6)
       generate_dummy_data if @products.empty?
     end
-  
-    @products ||= [] # Set @products to an empty array if it's nil
-  
+
     respond_to do |format|
       format.html
       format.js
     end
   end
-  
+
+
 
   def show
     @product = Product.find(params[:id])
