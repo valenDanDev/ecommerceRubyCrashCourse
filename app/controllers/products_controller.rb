@@ -1,13 +1,5 @@
 class ProductsController  < ApplicationController
 
-   # GET /product_s
-   def index
-    @products ||= [] # Set @products to an empty array if it's nil
-
-    if params[:category_id].present?
-      category = Category.find(params[:category_id])
-      @products = category.products.paginate(page: params[:page], per_page: 6)
-
 
   def adminIndex
     @products = Product.all
