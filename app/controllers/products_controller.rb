@@ -50,6 +50,12 @@ class ProductsController  < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def delete_confirmation
+    @product = Product.find(params[:id])
+    @product_name = @product.name
+    @product_description = @product.description
+  end
+
   # PATCH/PUT /products/:id
   def update
     @product = Product.find(params[:id])
