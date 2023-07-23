@@ -9,7 +9,7 @@
 <header class="header">
 
   <a class="logo">
-    <img src="logo.jpg" />
+    <%# <img src="logo.jpg" /> %>
     <i class="fas fa-store"></i> TECNO LOVERS
   </a>
 
@@ -27,6 +27,7 @@
 </header>
 <h3 class="sub-heading">Products</h3>
 <h1 class="heading">Products + Category</h1>
+<%= will_paginate @products %>
 
 <p style="color: green"><%= notice %></p>
 
