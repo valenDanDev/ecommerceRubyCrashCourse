@@ -8,7 +8,7 @@ class ProductsController  < ApplicationController
   def index
     if params[:category_id].present?
       category = Category.find(params[:category_id])
-      @products = category.products
+      @products = category.products.paginate(page: params[:page], per_page: 6)
     else
       @products = Product.paginate(page: params[:page], per_page: 6)
       generate_dummy_data if @products.empty?
