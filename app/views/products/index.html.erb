@@ -2,6 +2,7 @@
 <%= stylesheet_link_tag "style.css" %>
 <%= stylesheet_link_tag "header.css" %>
 <%= stylesheet_link_tag "card.css" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <%# <div class="header">
     <h1>TECNO LOVERS</h1>
 </div> %>
@@ -20,7 +21,9 @@
   </form>
 
   <div class="icons">
-    <div id="menu-btn" class="fas fa-bars"></div>
+    <a href="/home">
+     <div id="menu-btn" class="fas fa-home"></div>
+    </a>
     <a href="login.php" class="fas fa-user"></a>
     <a href="" class="fas fa-shopping-cart"></a>
   </div>
@@ -36,5 +39,39 @@
     <%= render product %>
   <% end %>
 </section>
+
+<!--Cart -->
+<div class="cart">
+  <div class="header-cart">
+    <h2>Your Cart</h2>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <%# <img> %>
+      <div class="cart-item-details">
+        <span class="cart-item-title">Box Engasse</span>
+        <div class="selector-count">
+          <i class="fa-solid fa-minus minus-count"></i>
+          <input type="text" value="1" class="cart-item-count" disabled>
+          <i class="fa-solid fa-plus plus-count"></i>
+        </div>
+        <span class="cart-item-price">$15.00</span>
+      </div>
+      <span class="btn-delete">
+        <i class="fa-solid fa-trash"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="cart-total">
+    <div class="row">
+      <strong>Your Total</strong>
+      <span class="cart-price-total">$150.00</span>
+    </div>
+    <button class="btn-buy">Buy <i class="fa-solid fa-bag-shopping"></i></button>
+  </div>
+
+</div>
+
 
 <%# <%= link_to "New product", new_product_path %>
