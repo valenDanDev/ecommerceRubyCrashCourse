@@ -1,0 +1,26 @@
+<h1>Edit Product</h1>
+
+<%= form_with(model: @product, url: update_product_path(@product), method: :patch, local: true) do |form| %>
+  <!-- Form fields and labels -->
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, step: 0.01 %>
+  </div>
+
+  <!-- Add other form fields as needed -->
+
+  <!-- Submit button -->
+  <%= form.submit "Update Product" %>
+<% end %>
+
+<%= link_to "Back to Products", admin_path %>

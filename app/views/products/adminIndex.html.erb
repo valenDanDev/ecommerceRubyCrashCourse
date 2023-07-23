@@ -1,0 +1,28 @@
+<!-- app/views/admin/products/index.html.erb -->
+<h1>Admin - All Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td>
+          <%= link_to 'Edit', edit_product_path(product) %>
+          <%= link_to 'Delete', delete_confirmation_admin_product_path(product) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Product', new_product_path %>

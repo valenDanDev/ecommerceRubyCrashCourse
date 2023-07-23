@@ -1,0 +1,36 @@
+<h1>Add New Product</h1>
+
+<%= form_with(model: @product, url: create_product_path, local: true) do |form| %>
+  <!-- Form fields and labels -->
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, step: 0.01 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+  </div>
+
+  <!-- Add other form fields as needed -->
+
+  <!-- Submit button -->
+  <%= form.submit "Create Product" %>
+<% end %>
+
+<%= link_to "Back to Products", admin_path %>
