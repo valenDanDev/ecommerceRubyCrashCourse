@@ -13,7 +13,7 @@ class ProductsController  < ApplicationController
       @products = Product.paginate(page: params[:page], per_page: 6)
       generate_dummy_data if @products.empty?
     end
-
+    @products ||= [] # Set @products to an empty array if it's nil
     respond_to do |format|
       format.html
       format.js
