@@ -87,3 +87,8 @@ section#products {
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
 }
+
+.box:hover {
+    box-shadow: 0 0 10px #6660;
+    scale: 1.05;
+}
