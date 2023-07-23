@@ -1,72 +1,76 @@
 class ProductsController  < ApplicationController
-   # GET /product_s
-   def index
+
+  def adminIndex
+    @products = Product.all
+  end
+     # GET /products
+  def index
     if params[:category_id].present?
       category = Category.find(params[:category_id])
-      @products = category.product
+      @products = category.products
     else
       @products = Product.all
       generate_dummy_data if @products.empty?
     end
-  
-    @products ||= [] # Set @products to an empty array if it's nil
-  
+
     respond_to do |format|
       format.html
       format.js
     end
   end
-  
 
   def show
     @product = Product.find(params[:id])
   end
 
-
-  # GET /product_s/new
+  # GET /products/new
   def new
     @product = Product.new
   end
 
-  # POST /product_s
+  # POST /products
   def create
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to product_s_path, notice: 'Product was successfully created.'
+      ProductCategory.create(product: @product, category_id: product_params[:category_id])
+      redirect_to products_path, notice: 'Product was successfully created.'
     else
       render :new
     end
   end
 
-  # GET /product_s/:id/edit
+  # GET /products/:id/edit
   def edit
     @product = Product.find(params[:id])
   end
 
-  # PATCH/PUT /product_s/:id
+  # PATCH/PUT /products/:id
   def update
     @product = Product.find(params[:id])
 
     if @product.update(product_params)
-      redirect_to product_s_path, notice: 'Product was successfully updated.'
+      redirect_to admin_path, notice: 'Product was successfully updated.'
     else
       render :edit
     end
   end
 
-  # DELETE /product_s/:id
+  # DELETE /products/:id
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to product_s_path, notice: 'Product was successfully destroyed.'
+    redirect_to admin_path, notice: 'Product was successfully destroyed.'
   end
+
 
   private
 
   def product_params
-    params.require(:product_s).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price)
   end
+
+
 
   private
 
