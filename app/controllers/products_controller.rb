@@ -74,9 +74,9 @@ class ProductsController  < ApplicationController
   def generate_dummy_data
     if Product.count.zero?
       products = [
-        { name: 'Cell Phone Samsung', description: 'Smartphone with advanced features', image_url: 'https://example.com/cell_phone.jpg', price: rand(300..1000), categories: ['Smartphones'] },
-        { name: 'Tv LG', description: 'Portable tablet device with a large screen', image_url: 'https://example.com/tablet.jpg', price: rand(200..800), categories: ['Televisions'] },
-        { name: 'Computer Lenovo', description: 'Desktop or laptop computer for various computing tasks', image_url: 'https://example.com/computer.jpg', price: rand(500..2000), categories: ['Computers'] },
+        { name: 'Samsung S23 Ultra', description: 'Smartphone with advanced features', image_url: 'https://gsmphone.co/wp-content/uploads/2023/02/SamsungGalaxyS23Ultra-3_900x.webp', price: rand(300..1000), categories: ['Smartphones'] },
+        { name: 'TV LG AI ThinQ', description: 'Portable tablet device with a large screen', image_url: 'https://www.lg.com/co/images/televisores/md07527587/gallery/dm-01.jpg', price: rand(200..800), categories: ['Televisions'] },
+        { name: 'Lenovo Legion 5', description: 'Desktop or laptop computer for various computing tasks', image_url: 'https://www.lenovo.com/medias/lenovo-laptop-legion-5-15-intel-series-gallery-1.png?context=bWFzdGVyfHJvb3R8NDA0NDIwfGltYWdlL3BuZ3xoNWYvaDYwLzE0MzMyNjk1NjA5Mzc0LnBuZ3xiNmJkZjljMzk0MDU0NTEzYTExZDdmYjc2MjhiMThiMDlkOGFmMjZjZjdhZGJmYTNlMWQ4NjQ3OGQ2Njk3MzBh', price: rand(500..2000), categories: ['Computers'] },
         { name: 'Xbox series X', description: 'High-quality audio headset for immersive audio experience', image_url: 'https://example.com/headset.jpg', price: rand(50..300), categories: ['Game Consoles'] },
         { name: 'Camera 48 mpx', description: 'Digital camera for capturing stunning photos and videos', image_url: 'https://example.com/camera.jpg', price: rand(200..1000), categories: ['Cameras'] },
         { name: 'smart watch apple', description: 'Aerial drone for photography and videography', image_url: 'https://example.com/drone.jpg', price: rand(300..1500), categories: ['Smart watches'] },

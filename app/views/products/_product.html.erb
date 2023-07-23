@@ -4,8 +4,11 @@
     <% if @products.present? %>
         <div class="box">
           <div class="image">
-            <%= image_tag product[:image_url], alt: "" %>
-            <a href="#" class="fas fa-eye"></a>
+          <%= image_tag product[:image_url], alt: "" %>
+          <%= link_to product_path(product, image_url: product[:image_url], product_name: product[:name],
+          product_description: product[:description]), class: "fas fa-eye" do %>
+            <%= "" %>
+          <% end %>
           </div>
           <div class="content">
             <div class="stars">
@@ -17,17 +20,13 @@
             </div>
             <h3><%= product[:name] %></h3>
             <p><%= product[:description] %></p>
-            <a href="#" class="btn">Add to cart</a>
-            <span class="price">$<%= product[:price] %></span>
           <%= form_tag carts_add_item_path, method: :post, class: "add-to-cart-form", data: { product_id: product.id } do %>
             <%= hidden_field_tag :id, product.id %>
             <%= number_field_tag :quantity, 0, min: 1 %>
-            <%= submit_tag "Add To Cart" %>
+            <%= submit_tag "Add To Cart" , class: "btn" %>
           <% end %>
+          <span class="price">$<%= product[:price] %></span>
           </div>
-          <p>
-           <%= link_to "Show this product", product %>
-          </p>
         </div>
     <% else %>
       <p>No products found.</p>
