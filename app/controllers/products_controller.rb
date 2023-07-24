@@ -56,6 +56,12 @@ class ProductsController  < ApplicationController
     @product_description = @product.description
   end
 
+  def deleteFailed
+    @product = Product.find(params[:id])
+    @product_name = @product.name
+    @product_description = @product.description
+  end
+
   # PATCH/PUT /products/:id
   def update
     @product = Product.find(params[:id])
@@ -69,10 +75,25 @@ class ProductsController  < ApplicationController
 
   # DELETE /products/:id
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to admin_path, notice: 'Product was successfully destroyed.'
+    def destroy
+      @product =  Product.find(params[:id])
+      @orderItem = OrderItem.find_by(product_id: @product.id)
+    
+      # Check if the @orderItem is associated with the product
+      if @orderItem
+        puts "it can not be deleted"
+        redirect_to errorDeleting_admin_path, alert: 'Cannot delete product. It has associated OrderItems.'
+      else
+        product_category = ProductCategory.find_by(product_id: @product.id)
+        product_category.destroy if product_category
+    
+        @product.destroy
+        redirect_to admin_path, notice: 'Product was successfully destroyed.'
+      end
+    end
+    
   end
+  
 
 
   private

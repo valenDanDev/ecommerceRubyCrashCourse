@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   patch '/admin/:id/edit', to: 'products#update', as: 'update_product'
   delete "/admin/:id", to: "products#destroy", as: "destroy_admin_product"
   get "/admin/:id/delete", to: "products#delete_confirmation", as: "delete_confirmation_admin_product"
+  get "/admin/:id/deleteFailed", to: "products#deleteFailed", as: "errorDeleting_admin"
   
 end
