@@ -35,12 +35,20 @@ class ProductsController  < ApplicationController
 
   # POST /products
   def create
-    @product = Product.new(product_params)
-
+    @product = Product.new(product_params) 
+    @category_id = params[:product][:category_id]
+    puts "hola #{@category_id}"
     if @product.save
-      ProductCategory.create(product: @product, category_id: product_params[:category_id])
-      redirect_to products_path, notice: 'Product was successfully created.'
+      product_category = ProductCategory.new(product_id: @product.id, category_id:@category_id)
+      if product_category.save
+        redirect_to admin_path, notice: 'Product was successfully created.'
+      else
+        # Display errors for product_category
+        puts product_category.errors.full_messages
+        render :new
+      end
     else
+      puts @product.errors.full_messages
       render :new
     end
   end
@@ -99,8 +107,9 @@ class ProductsController  < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price,:image_url)
   end
+  
 
 
 
