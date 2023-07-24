@@ -27,7 +27,7 @@
     width: 300px;
     position: relative;
     box-sizing: border-box;
-    background: rgb(27, 27, 27, .5);
+    background: #5200ff;
     color: white;
     transition: .5s;
 }
@@ -48,7 +48,7 @@ h1{
 }
 
 .product-card:hover .intro{
-    height: 120px;
+    height: 70px;
     bottom: 40px;
     background: black;
 }

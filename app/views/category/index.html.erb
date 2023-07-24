@@ -24,7 +24,7 @@
     <a href="/home">
      <div id="menu-btn" class="fas fa-home"></div>
     </a>
-    <a href="login.php" class="fas fa-user"></a>
+    <a href="/admin" class="fas fa-user"></a>
     <a href="" class="fas fa-shopping-cart"></a>
   </div>
 </header>
@@ -35,10 +35,12 @@
 
       <div class="swiper-slide slide">
         <div class="content">
-          <span>Nuestros platos especiales</span>
-          <h3>Fideos picantes</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
-          <a href="#" class="btn">Buy now</a>
+          <span>Our best cameras</span>
+          <h3>Canon EOS</h3>
+          <p>It's a highly acclaimed camera known for its exceptional performance and
+          versatility. This cutting-edge digital camera line offers a wide range of
+          models tailored to suit the needs of both amateur and professional photographers.</p>
+          <a href="/products?category_id=5" class="btn">Buy now</a>
         </div>
         <div class="image">
           <%= image_tag("Camera.png", alt: "") %>
@@ -47,22 +49,22 @@
 
       <div class="swiper-slide slide">
         <div class="content">
-          <span>Nuestros platos especiales</span>
-          <h3>Pollo frito</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
-          <a href="#" class="btn">Buy now</a>
+          <span>Our best computers</span>
+          <h3>Lenovo Legion 5</h3>
+          <p>It's a powerful and sleek gaming laptop designed to deliver an exceptional gaming experience. With its cutting-edge hardware and high-performance components, this laptop is built for gamers and content creators alike. </p>
+          <a href="/products?category_id=3" class="btn">Buy now</a>
         </div>
         <div class="image">
-          <%= image_tag("Computer.png", alt: "") %>
+          <%= image_tag("https://www.lenovo.com/medias/lenovo-laptop-legion-5-15-intel-series-gallery-1.png?context=bWFzdGVyfHJvb3R8NDA0NDIwfGltYWdlL3BuZ3xoNWYvaDYwLzE0MzMyNjk1NjA5Mzc0LnBuZ3xiNmJkZjljMzk0MDU0NTEzYTExZDdmYjc2MjhiMThiMDlkOGFmMjZjZjdhZGJmYTNlMWQ4NjQ3OGQ2Njk3MzBh", alt: "") %>
         </div>
       </div>
 
       <div class="swiper-slide slide">
         <div class="content">
-          <span>Nuestros platos especiales</span>
-          <h3>pizza caliente</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
-          <a href="#" class="btn">Buy now</a>
+          <span>Our best drones</span>
+          <h3>Drone 3DR</h3>
+          <p> It's a cutting-edge unmanned aerial vehicle (UAV) that blends advanced technology with user-friendly features. Designed for both enthusiasts and professionals, this sleek and compact drone boasts impressive capabilities in aerial photography, surveying, and mapping. </p>
+          <a href="/products?category_id=8" class="btn">Buy now</a>
         </div>
         <div class="image">
           <%= image_tag("Drone.png", alt: "") %>
@@ -75,21 +77,59 @@
 </section>
 
 <div class="product-cards">
- <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Speaker.png', 'Drone.png', 'Headphone.png'] %>
+ <% images = ['Smartphone.png', 'Television.png', 'Computer.png', 'GameConsole.png', 'Camera.png', 'SmartWatch.png', 'Headphone.png', 'Drone.png'] %>
 <% @categories.each_with_index do |category,index| %>
  <% img = images[index] %>
   <div class="product-card" data-category-id="<%= category.id %>">
  <%= image_tag img, alt: "#{category} image", class: "product-image" %>
-   <%= link_to products_path(category_id: category.id), class: "product-link" do %><
+   <%= link_to products_path(category_id: category.id), class: "product-link" do %>
     <div class="intro">
       <h1><%= category.name %></h1>
-
     </div>
-
-    <p>watch products</p>
     <% end %>
   </div>
 <% end %>
+</div>
+
+<section class="footer" id="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Contact information (Stiwar)</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +57 3044173389 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> stiwarsg11@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Medellin, Colombia</a>
+        </div>
+
+        <div class="box">
+            <h3>Social Networks</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> Facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> Twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> Instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> Linkedin </a>
+        </div>
+
+        <div class="box">
+            <h3>Contact information (Daniel)</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +57 3116886868 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> valenciadaniel8022015@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Medellin, Colombia</a>
+        </div>
+
+        <div class="box">
+            <h3>Social Networks</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> Facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> Twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> Instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> Linkedin </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> Created by Stiwar Salazar & Daniel Valencia | All rights reserved &copy; <?php echo date('Y')?> </div>
+
+</section>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="<%= asset_path('script.js') %>"></script>
