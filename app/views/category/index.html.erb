@@ -24,7 +24,7 @@
     <a href="/home">
      <div id="menu-btn" class="fas fa-home"></div>
     </a>
-    <a href="login.php" class="fas fa-user"></a>
+    <a href="/admin" class="fas fa-user"></a>
     <a href="" class="fas fa-shopping-cart"></a>
   </div>
 </header>
@@ -40,7 +40,7 @@
           <p>It's a highly acclaimed camera known for its exceptional performance and
           versatility. This cutting-edge digital camera line offers a wide range of
           models tailored to suit the needs of both amateur and professional photographers.</p>
-          <a href="#" class="btn">Buy now</a>
+          <a href="/products?category_id=5" class="btn">Buy now</a>
         </div>
         <div class="image">
           <%= image_tag("Camera.png", alt: "") %>
@@ -52,7 +52,7 @@
           <span>Our best computers</span>
           <h3>Lenovo Legion 5</h3>
           <p>It's a powerful and sleek gaming laptop designed to deliver an exceptional gaming experience. With its cutting-edge hardware and high-performance components, this laptop is built for gamers and content creators alike. </p>
-          <a href="#" class="btn">Buy now</a>
+          <a href="/products?category_id=3" class="btn">Buy now</a>
         </div>
         <div class="image">
           <%= image_tag("https://www.lenovo.com/medias/lenovo-laptop-legion-5-15-intel-series-gallery-1.png?context=bWFzdGVyfHJvb3R8NDA0NDIwfGltYWdlL3BuZ3xoNWYvaDYwLzE0MzMyNjk1NjA5Mzc0LnBuZ3xiNmJkZjljMzk0MDU0NTEzYTExZDdmYjc2MjhiMThiMDlkOGFmMjZjZjdhZGJmYTNlMWQ4NjQ3OGQ2Njk3MzBh", alt: "") %>
@@ -64,7 +64,7 @@
           <span>Our best drones</span>
           <h3>Drone 3DR</h3>
           <p> It's a cutting-edge unmanned aerial vehicle (UAV) that blends advanced technology with user-friendly features. Designed for both enthusiasts and professionals, this sleek and compact drone boasts impressive capabilities in aerial photography, surveying, and mapping. </p>
-          <a href="#" class="btn">Buy now</a>
+          <a href="/products?category_id=8" class="btn">Buy now</a>
         </div>
         <div class="image">
           <%= image_tag("Drone.png", alt: "") %>
@@ -82,13 +82,10 @@
  <% img = images[index] %>
   <div class="product-card" data-category-id="<%= category.id %>">
  <%= image_tag img, alt: "#{category} image", class: "product-image" %>
-   <%= link_to products_path(category_id: category.id), class: "product-link" do %><
+   <%= link_to products_path(category_id: category.id), class: "product-link" do %>
     <div class="intro">
       <h1><%= category.name %></h1>
-
     </div>
-
-    <p>watch products</p>
     <% end %>
   </div>
 <% end %>

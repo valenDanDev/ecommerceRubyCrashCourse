@@ -173,7 +173,7 @@ header .icons #menu-bars{
     align-items: center;
     flex-wrap: wrap;
     gap:2rem;
-    padding-top: 9rem;
+    padding-top: 3rem;
 }
 /* flex basis es el tamaño base y tiene mas importancia que width y height
     flex-grom indica como va a crecer el element
@@ -548,7 +548,7 @@ header .icons #menu-bars{
 }
 
 .footer .box-container .box a:hover{
-    color:var(--green);
+    color:#5200ff;
     text-decoration: underline;
 }
 
