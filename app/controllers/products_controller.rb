@@ -129,7 +129,7 @@ class ProductsController  < ApplicationController
         { name: 'Xbox series X', description: 'High-quality audio headset for immersive audio experience', image_url: 'https://example.com/headset.jpg', price: rand(50..300), categories: ['Game Consoles'] },
         { name: 'Camera 48 mpx', description: 'Digital camera for capturing stunning photos and videos', image_url: 'https://example.com/camera.jpg', price: rand(200..1000), categories: ['Cameras'] },
         { name: 'smart watch apple', description: 'Aerial drone for photography and videography', image_url: 'https://example.com/drone.jpg', price: rand(300..1500), categories: ['Smart watches'] },
-        { name: 'Speaker JBL', description: 'Wearable device with advanced features and health tracking', image_url: 'https://example.com/smartwatch.jpg', price: rand(100..500), categories: ['Speakers'] },
+        { name: 'Speaker JBL', description: 'Wearable device with advanced features and health tracking', image_url: 'https://example.com/smartwatch.jpg', price: rand(100..500), categories: ['Headphones'] },
         { name: 'Super Drone', description: 'High-performance gaming console for immersive gaming experiences', image_url: 'https://example.com/gaming_console.jpg', price: rand(300..800), categories: ['Drones'] },
         { name: 'Wireless Earbuds', description: 'True wireless earbuds for convenient and high-quality audio experience', image_url: 'https://example.com/wireless_earbuds.jpg', price: rand(50..200), categories: ['Headphones'] },
         { name: 'Cell Phone Samsung Promax14', description: 'Immersive virtual reality headset for interactive experiences', image_url: 'https://example.com/vr_headset.jpg', price: rand(200..800), categories: ['Smartphones'] }
