@@ -5,20 +5,25 @@ class ProductsController  < ApplicationController
     @products = Product.all
   end
      # GET /products
-  def index
-    if params[:category_id].present?
-      category = Category.find(params[:category_id])
-      @products = category.products.paginate(page: params[:page], per_page: 6)
-    else
-      @products = Product.paginate(page: params[:page], per_page: 6)
-      generate_dummy_data if @products.empty?
+     def index
+      if params[:search].present?
+        # Perform a case-insensitive search by product name or description
+        @products = Product.where('lower(name) LIKE ? OR lower(description) LIKE ?', "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
+                         .paginate(page: params[:page], per_page: 6)
+      elsif params[:category_id].present?
+        category = Category.find(params[:category_id])
+        @products = category.products.paginate(page: params[:page], per_page: 6)
+      else
+        @products = Product.paginate(page: params[:page], per_page: 6)
+        generate_dummy_data if @products.empty?
+      end
+    
+      @products ||= [] # Set @products to an empty array if it's nil
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
-    @products ||= [] # Set @products to an empty array if it's nil
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
 
 
 

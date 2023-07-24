@@ -15,10 +15,12 @@
   </a>
 
 
-  <form action="" class="search-form">
-    <input type="search" id="search-box" placeholder="Search here...">
-    <label for="search-box" class="fas fa-search"></label>
-  </form>
+
+<form action="<%= products_path %>" class="search-form">
+  <input type="search" name="search" id="search-box" placeholder="Search here...">
+  <label for="search-box" class="fas fa-search"></label>
+  <input type="submit" value="Search">
+</form>
 
   <div class="icons">
     <a href="/home">
