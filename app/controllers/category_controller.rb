@@ -61,9 +61,8 @@ class CategoryController < ApplicationController
         { name: 'Game Consoles' },
         { name: 'Cameras' },
         { name: "Smart watches"},
-        { name: "Speakers"},
-        { name: "Drones"},
-        { name: "Headphones"}
+        { name: "Headphones"},
+        { name: "Drones"}
       ]
 
       products.each do |categories|
