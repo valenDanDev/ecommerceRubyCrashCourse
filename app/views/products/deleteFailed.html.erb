@@ -1,0 +1,17 @@
+<h1>Error while trying to delete Product</h1>
+<div class="product-details">
+  <h4>Name: </h3>
+  <p><%= @product_name %></p>
+  <div class="description">
+    <h4>Description</h4>
+    <p><%= @product_description %></p>
+  </div>
+</div>
+
+
+
+
+<p>You can not delete a product who has been already ordered by a client?</p>
+
+<%= link_to "Back to Products", admin_path %>
+
