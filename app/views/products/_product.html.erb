@@ -23,7 +23,7 @@
           <%= form_tag carts_add_item_path, method: :post, class: "add-to-cart-form", data: { product_id: product.id } do %>
             <%= hidden_field_tag :id, product.id %>
             <%= number_field_tag :quantity, 0, min: 1 %>
-            <%= submit_tag "Add To Cart" , class: "btn" %>
+            <%= submit_tag "Add To Cart" , class: "btn add-to-cart-btn"%>
           <% end %>
           <span class="price">$<%= product[:price] %></span>
           </div>
@@ -33,3 +33,34 @@
     <% end %>
   </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).on('submit', '.add-to-cart-form', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe normalmente
+
+    var formData = $(this).serialize(); // Obtiene los datos del formulario
+
+    // Realiza la solicitud AJAX
+    $.ajax({
+      type: 'POST',
+      url: $(this).attr('action'), // La URL a la que enviarás la solicitud
+      data: formData, // Los datos del formulario serializados
+      success: function(response) {
+        // Aquí puedes manejar la respuesta del servidor
+        // En este ejemplo, supondremos que el servidor devuelve HTML que representa el carrito y los productos
+
+        // Renderiza la respuesta en el contenedor del carrito
+        $('#cart-container').html(response);
+
+        // Redirecciona a la ruta /products después de la respuesta exitosa
+        window.location.href = '<%= products_path %>';
+      },
+      error: function() {
+        // Maneja cualquier error que pueda ocurrir durante la solicitud AJAX
+        alert('Hubo un error al agregar el producto al carrito.');
+      }
+    });
+  });
+</script>
