@@ -6,7 +6,7 @@
 <%# <div class="header">
     <h1>TECNO LOVERS</h1>
 </div> %>
-  <%= render partial: "carts/cart" if @render_cart %>
+
 <header class="header">
 
   <a class="logo">
@@ -14,13 +14,10 @@
     <i class="fas fa-store"></i> TECNO LOVERS
   </a>
 
-
-
-<form action="<%= products_path %>" class="search-form">
-  <input type="search" name="search" id="search-box" placeholder="Search here...">
-  <label for="search-box" class="fas fa-search"></label>
-  <input type="submit" value="Search">
-</form>
+  <form action="<%= products_path %>" class="search-form">
+    <input type="search" name="search" id="search-box" placeholder="Search here...">
+    <button type="submit" class="search-button"><label for="search-box" class="fas fa-search"></label></button>
+  </form>
 
   <div class="icons">
     <a href="/home">
@@ -30,17 +27,22 @@
     <a href="" class="fas fa-shopping-cart"></a>
   </div>
 </header>
+
 <h3 class="sub-heading">Products</h3>
 <h1 class="heading">Products + Category</h1>
 <%= will_paginate @products %>
 
 <p style="color: green"><%= notice %></p>
 
-<section id="products" >
-  <% @products.each do |product| %>
-    <%= render product %>
-  <% end %>
-</section>
+<div class="products" >
+  <div class="all-products" >
+    <% @products.each do |product| %>
+      <%= render product %>
+    <% end %>
+  </div>
+  <%= render partial: "carts/cart" if @render_cart %>
+</div>
+
 
 <section class="footer" id="footer">
 
@@ -82,5 +84,16 @@
 
 </section>
 
+<script>
+  // JavaScript to handle the button click and the cart container visibility
+  document.getElementById("fa-shopping-cart").addEventListener("click", function () {
+    var cartContainer = document.getElementById("cart-container");
+    if (cartContainer.style.display === "none") {
+      cartContainer.style.display = "block"; // Show the cart if it's hidden
+    } else {
+      cartContainer.style.display = "none"; // Hide the cart if it's visible
+    }
+  });
+</script>
 
 <%# <%= link_to "New product", new_product_path %>

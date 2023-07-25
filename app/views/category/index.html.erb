@@ -15,9 +15,9 @@
   </a>
 
 
-  <form action="" class="search-form">
-    <input type="search" id="search-box" placeholder="Search here...">
-    <label for="search-box" class="fas fa-search"></label>
+  <form action="<%= products_path %>" class="search-form">
+    <input type="search" name="search" id="search-box" placeholder="Search here...">
+    <button type="submit" class="search-button"><label for="search-box" class="fas fa-search"></label></button>
   </form>
 
   <div class="icons">
