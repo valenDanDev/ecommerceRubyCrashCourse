@@ -7,16 +7,20 @@
 <p>Order Date: <%= @order.order_date %></p>
 
 <h2>Order Items</h2>
-<% if @order.order_items.any? %>
-  <ul>
-    <% @order.order_items.each do |order_item| %>
-      <li>
-        Product: <%= order_item.product.name %><br>
-        Quantity: <%= order_item.quantity %><br>
-        Subtotal: <%= order_item.subtotal %>
-      </li>
+<div class="order-items">
+  <div class="order-item">
+    <% if @order.order_items.any? %>
+      <ul>
+        <% @order.order_items.each do |order_item| %>
+          <li>
+            Product: <%= order_item.product.name %><br>
+            Quantity: <%= order_item.quantity %><br>
+            Subtotal: <%= order_item.subtotal %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No items found for this order.</p>
     <% end %>
-  </ul>
-<% else %>
-  <p>No items found for this order.</p>
-<% end %>
+  </div>
+</div>

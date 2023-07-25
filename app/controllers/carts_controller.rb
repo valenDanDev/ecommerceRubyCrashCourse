@@ -25,7 +25,7 @@ class CartsController < ApplicationController
     cart_item = CartItem.find_by(id: params[:id])
     cart_item.destroy if cart_item
 
-    redirect_to carts_path
+    redirect_to products_path
   end
 
   private

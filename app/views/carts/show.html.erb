@@ -7,3 +7,51 @@
 <p>Your total is $<%= @cart.total %> </p>
 <a href="<%= products_path %>"><button type="button">Continue shopping</button></a>
  <%= link_to "Check out!", new_order_path, method: :post, class: "checkout-button" %>
+
+
+<%= stylesheet_link_tag "cart.css" %>
+<div class="cart" id="cart-container2">
+  <div class="header-cart">
+    <h2>Your Cart</h2>
+  </div>
+
+    <% if @cart.cart_items.count > 0 %>
+      <% @cart.cart_items.each do |cart_item| %>
+        <% product = cart_item.product %>
+        <div class="cart-items">
+          <div class="cart-item">
+            <%= image_tag product[:image_url], alt: "" %>
+            <div class="cart-item-details">
+              <span class="cart-item-title"><%= product.name %></span>
+              <%= form_with(url: carts_add_item_path, method: :post, class: "update-cart-form", data: { product_id: product.id }) do |f| %>
+                <%= f.hidden_field :id, value: product.id %>
+                <%= f.number_field :quantity, value: cart_item.quantity, min: 0 %>
+                <%= f.submit "Update" %>
+              <% end %>
+              <div class="selector-count">
+                <i class="fa-solid fa-minus minus-count"></i>
+                <input type="text" value="1" class="cart-item-count" disabled>
+                <i class="fa-solid fa-plus plus-count"></i>
+              </div>
+              <span class="cart-item-price">$<%= product.price * cart_item.quantity %></span>
+            </div>
+            <span class="btn-delete">
+              <%= form_with(url: carts_remove_path(id: cart_item.id), method: :post) do |f| %>
+                <button type="submit" class="fa-solid fa-trash" value=""></button>
+              <% end %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Your cart is empty</p>
+    <% end %>
+
+  <div class="cart-total">
+    <div class="row">
+      <strong>Your Total</strong>
+      <span class="cart-price-total"><%= @cart.total %></span>
+    </div>
+    <button class="btn-buy">Buy <i class="fa-solid fa-bag-shopping"></i></button>
+  </div>
+</div>
