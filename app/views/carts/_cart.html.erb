@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag "cart.css" %>
+<%= stylesheet_link_tag "cart.css" %>
 <div class="cart" id="cart-container">
   <div class="header-cart">
     <h2>Your Cart</h2>
+    <button class="close-icon" id="close-cart">&times;</button>
   </div>
   <% if show_cart? %>
     <% if @cart.cart_items.count > 0 %>
@@ -46,7 +48,7 @@
     <% end %>
   </div>
 </div>
-
+<!--
 <% if show_cart? %>
   <h1>Cart</h1>
   <% if @cart.cart_items.count > 0 %>
@@ -79,4 +81,11 @@
   <% else %>
   <p>Your cart is empty</p>
   <% end %>
-<% end %>
+<% end %>-->
+
+<script>
+  // JavaScript to handle the button click and hide the cart container
+  document.getElementById("close-cart").addEventListener("click", function () {
+  document.getElementById("cart-container").style.display = "none";
+  });
+</script>

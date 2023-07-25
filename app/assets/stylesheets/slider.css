@@ -111,7 +111,7 @@ header .icons a:hover{
     color:#fff;
     transform: rotate(360deg);
 }
-/*menu hamburguesa*/
+
 header .icons #menu-bars{
     display: none;
 }
@@ -352,9 +352,8 @@ header .icons #menu-bars{
 }
 
 .menu .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap:1.5rem;
+    width: 280px;
+    height: 450px;
 }
 
 .menu .box-container .box{
@@ -362,11 +361,14 @@ header .icons #menu-bars{
     border:.1rem solid rgba(0,0,0,.2);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
+    height: 450px;
 }
 
 .menu .box-container .box .image{
-    height: 25rem;
-    width: 100%;
+    width: 300px;
+    height: 178px;
+    max-width: 100%;
+    max-height: 100%;
     padding:1.5rem;
     overflow: hidden;
     position: relative;
@@ -588,5 +590,16 @@ header .icons #menu-bars{
     opacity:0;
 }
 
+.products{
+    position: relative;
+    display: flex;
+}
 
+.all-products{
+    width: 70%;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
 
