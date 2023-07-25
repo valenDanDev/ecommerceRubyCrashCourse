@@ -1,4 +1,7 @@
-<!-- app/views/admin/products/index.html.erb -->
+<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<%= stylesheet_link_tag "admin.css" %>
 <h1>Admin - All Products</h1>
 
 <table>
@@ -17,12 +20,17 @@
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <td>
-          <%= link_to 'Edit', edit_product_path(product) %>
-          <%= link_to 'Delete', delete_confirmation_admin_product_path(product) %>
+          <%= link_to edit_product_path(product), class: 'edit-button' do %>
+            <i class="fa-solid fa-pen-to-square"></i> <!-- Font Awesome edit icon -->
+          <% end %>
+          <%= link_to delete_confirmation_admin_product_path(product), class: 'delete-button' do %> 
+            <i class="fa-regular fa-trash-can"></i><!-- Font Awesome delete icon -->
+          <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class: 'new-product-link' %>
+
