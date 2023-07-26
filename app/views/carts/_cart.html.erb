@@ -16,14 +16,8 @@
               <span class="cart-item-title"><%= product.name %></span>
               <%= form_with(url: carts_add_item_path, method: :post, class: "update-cart-form", data: { product_id: product.id }) do |f| %>
                 <%= f.hidden_field :id, value: product.id %>
-                <%= f.number_field :quantity, value: cart_item.quantity, min: 0 %>
-                <%= f.submit "Update" %>
+                <%= cart_item.quantity%>
               <% end %>
-              <div class="selector-count">
-                <i class="fa-solid fa-minus minus-count"></i>
-                <input type="text" value="1" class="cart-item-count" disabled>
-                <i class="fa-solid fa-plus plus-count"></i>
-              </div>
               <span class="cart-item-price"><%= product.price * cart_item.quantity %></span>
             </div>
             <span class="btn-delete">

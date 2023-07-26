@@ -354,10 +354,22 @@ table {
     overflow: hidden;
 }
 
-section#footer {
-  position: relative;
+.footer-Admin .credit{
+  text-align: center;
+  border-top: .1rem solid rgba(0,0,0,.1);
+  font-size: 2rem;
+  color:var(--black);
+  padding:.5rem;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+
+section#footer-Admin {
+  width: 100%;
+  position: fixed;
   background: none;
-  bottom:  0;
+  bottom: 0;
 }
 
 /*pagiantion styles*
