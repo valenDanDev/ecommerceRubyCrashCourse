@@ -1,0 +1,120 @@
+  /* Styles for the form container */
+
+.shipping{
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+  .form-container-shipping {
+    position: relative;
+    top: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  /* Styles for the form fields */
+  .form-field-shipping {
+    margin-bottom: 10px;
+  }
+
+  .form-field-shipping label {
+    display: block;
+    font-weight: bold;
+  }
+
+  .form-field-shipping input[type="text"],
+  .form-field-shipping textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .form-field-shipping select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+  }
+
+  /* Style for the submit button */
+  .form-submit {
+    background: linear-gradient(#f3c6de, #5200ff);;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .form-submit:hover {
+    background-color: #45a049;
+  }
+
+
+  .body-newShipping{
+    background-image: linear-gradient(135deg, rgba(102, 126, 235, 0.692) 0%, rgba(118, 75, 162, 0.692) 100%),url(https://media.istockphoto.com/id/1383963898/es/foto/los-iconos-de-tecnolog%C3%ADa-transfieren-datos-a-trav%C3%A9s-de-c%C3%B3digos-de-programaci%C3%B3n.jpg?b=1&s=612x612&w=0&k=20&c=yVdu0kQduYwan5D8u8V7AoExENNEPOyVKTQdLKwnyZM=);
+      width: 100%;
+      height: 650px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+  }
+
+  section#footer-shipping {
+    width: 100%;
+    position: absolute;
+    background: none;
+    bottom: 0;
+ }
+
+
+ .footer-shipping .credit {
+    text-align: center;
+    border-top: 0.1rem solid rgba(0,0,0,.1);
+    font-size: 2rem;
+    color: var(--black);
+    padding: 0;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+
+  /*Order Details*/
+
+div#order-items-container {
+    position: fixed;
+    max-width: 370px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    right: 40px;
+    top: 120px;
+}
+
+div#order-items-container p {
+    margin: 88px 0 88px 0;
+}
+
+  .h1-shipping {
+    color: #5200ff;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .p-shipping {
+    color: #444;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }

@@ -1,42 +1,55 @@
-<!-- app/views/shipping/new.html.erb -->
+<%= stylesheet_link_tag "newShipping.css" %>
+<body class="body-newShipping">
+  <div class="shipping">
+    <div id="order-items-container">
+    <%= render 'order/order_items', order: @order %>
+    </div>
+    <div class="form-container-shipping">
+      <h1>New Shipping</h1>
 
+      <%= form_with(model: @shipping, url: shipping_path(order_id: params[:order_id]), local: true) do |form| %>
+        <!-- Form fields and labels -->
+        <div class="form-field-shipping">
+          <%= form.label :fullname %>
+          <%= form.text_field :fullname %>
+        </div>
 
+        <div class="form-field-shipping">
+          <%= form.label :address %>
+          <%= form.text_field :address %>
+        </div>
 
-<div id="order-items-container">
-   <%= render 'order/order_items', order: @order %>
-</div>
-<h1>New Shipping</h1>
+        <div class="form-field-shipping">
+          <%= form.label :email %>
+          <%= form.email_field :email %>
+        </div>
 
-<%= form_with(model: @shipping, url: shipping_path(order_id: params[:order_id]), local: true) do |form| %>
-  <!-- Form fields and labels -->
-  <div class="field">
-    <%= form.label :fullname %>
-    <%= form.text_field :fullname %>
+        <div class="form-field-shipping">
+          <%= form.label :phoneNumber %>
+          <%= form.text_field :phoneNumber %>
+        </div>
+
+        <div class="form-field-shipping">
+          <%= form.label :bank %>
+          <%= form.text_field :bank %>
+        </div>
+
+        <!-- Add other form fields as needed -->
+
+        <!-- Submit button -->
+        <%= form.submit "Create Shipping" %>
+      <% end %>
+    </div>
+
+    <section class="footer" id="footer">
+      <div class="credit"> Created by Stiwar Salazar & Daniel Valencia | All rights reserved &copy; <?php echo date('Y')?> </div>
+    </section>
   </div>
+</body>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
 
-  <div class="field">
-    <%= form.label :phoneNumber %>
-    <%= form.number_field :phoneNumber %>
-  </div>
 
-  <div class="field">
-    <%= form.label :bank %>
-    <%= form.text_field :bank %>
-  </div>
 
-  <!-- Add other form fields as needed -->
 
-  <!-- Submit button -->
-  <%= form.submit "Create Shipping" %>
 
-<% end %>

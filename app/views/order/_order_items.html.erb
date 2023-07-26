@@ -1,26 +1,15 @@
 <!-- app/views/orders/show.html.erb -->
-<h1>Order Details</h1>
-
-<p>Order ID: <%= @order.id %></p>
-<p>Total Price: <%= @order.total_price %></p>
-<p>Status: <%= @order.status %></p>
-<p>Order Date: <%= @order.order_date %></p>
-
-<h2>Order Items</h2>
-<div class="order-items">
-  <div class="order-item">
-    <% if @order.order_items.any? %>
-      <ul>
-        <% @order.order_items.each do |order_item| %>
-          <li>
-            Product: <%= order_item.product.name %><br>
-            Quantity: <%= order_item.quantity %><br>
-            Subtotal: <%= order_item.subtotal %>
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>No items found for this order.</p>
+<%= stylesheet_link_tag "newShipping.css" %>
+<div class="order-details-container">
+  <% if @order.order_items.any? %>
+    <% total_quantity = 0 %>
+    <% @order.order_items.each do |order_item| %>
+      <% total_quantity += order_item.quantity %>
     <% end %>
-  </div>
+    <h1 class="h1-shipping">Checkout (<%= total_quantity %> items)</h1>
+  <% else %>
+    <p class="p-shipping">No items found for this order.</p>
+  <% end %>
+  <p class="p-shipping">Date: <%= @order.order_date %></p>
+  <p class="p-shipping">Total Price: <%= @order.total_price %></p>
 </div>
