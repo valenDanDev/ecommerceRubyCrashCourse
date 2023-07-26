@@ -359,3 +359,47 @@ section#footer {
   background: none;
   bottom:  0;
 }
+
+/*pagiantion styles*
+/* Styles for custom pagination links */
+/* Styles for custom pagination links */
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.custom-pagination li {
+  margin: 0 5px;
+}
+
+.custom-pagination a,
+.custom-pagination span {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #f0f0f0; /* Background color for buttons */
+  transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+.custom-pagination .previous_page,
+.custom-pagination .next_page {
+  font-weight: bold;
+}
+
+.custom-pagination .disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Hover effect for buttons */
+.custom-pagination a:hover {
+  background-color: #ddd;
+  color: #000;
+}
+
