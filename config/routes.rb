@@ -31,4 +31,6 @@ Rails.application.routes.draw do
   get "/admin/:id/delete", to: "products#delete_confirmation", as: "delete_confirmation_admin_product"
   get "/admin/:id/deleteFailed", to: "products#deleteFailed", as: "errorDeleting_admin"
 
+  get "/about", to: "about#index"
+
 end
