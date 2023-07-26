@@ -6,24 +6,24 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
   }
-  
+
   thead th {
     background-color: #f2f2f2;
     border-bottom: 2px solid #ddd;
     padding: 8px;
     text-align: left;
   }
-  
+
   tbody td {
     border-bottom: 1px solid #ddd;
     padding: 8px;
   }
-  
+
   /* Styles for alternating row colors */
   tbody tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  
+
   /* Styles for the edit and delete buttons */
   .edit-button,
   .delete-button {
@@ -32,15 +32,15 @@ table {
     color: #fff;
     border-radius: 5px;
   }
-  
+
   .edit-button {
     background-color: #f39c12; /* Yellow color for edit button */
   }
-  
+
   .delete-button {
     background-color: #e74c3c; /* Red color for delete button */
   }
-  
+
   /* Icon styles */
   .edit-button i,
   .delete-button i {
@@ -51,7 +51,7 @@ table {
 .new-product-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background: linear-gradient(#f3c6de, #5200ff);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -59,16 +59,18 @@ table {
   }
 
 
-  
-  
+
+
   /* Change background color on hover */
   .new-product-link:hover {
     background-color: #45a049;
   }
-  
+
 
   /* Styles for the form container */
 .form-container {
+    position: relative;
+    top: 110px;
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
@@ -76,17 +78,17 @@ table {
     border-radius: 5px;
     background-color: #f5f5f5;
   }
-  
+
   /* Styles for the form fields */
   .form-field {
     margin-bottom: 10px;
   }
-  
+
   .form-field label {
     display: block;
     font-weight: bold;
   }
-  
+
   .form-field input[type="text"],
   .form-field textarea {
     width: 100%;
@@ -94,7 +96,7 @@ table {
     border: 1px solid #ccc;
     border-radius: 3px;
   }
-  
+
   .form-field select {
     width: 100%;
     padding: 8px;
@@ -102,33 +104,33 @@ table {
     border-radius: 3px;
     background-color: #fff;
   }
-  
+
   /* Style for the submit button */
   .form-submit {
-    background-color: #4CAF50;
+    background: linear-gradient(#f3c6de, #5200ff);;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .form-submit:hover {
     background-color: #45a049;
   }
-  
+
   /* Style for the "Back to Products" link */
   .back-link {
     display: block;
     margin-top: 10px;
-    color: #4CAF50;
+    color: #5200ff;
     text-decoration: none;
   }
-  
+
   .back-link:hover {
     color: #45a049;
   }
-  
+
   /* Styles for the product-details container */
 .product-details {
   max-width: 500px;
@@ -204,36 +206,36 @@ table {
     border-radius: 5px;
     background-color: #f5f5f5;
   }
-  
+
   .product-details h1 {
     margin-bottom: 20px;
   }
-  
+
   .product-details h4 {
     font-weight: bold;
   }
-  
+
   .product-details p {
     margin-bottom: 10px;
   }
-  
+
   .product-details .description {
     margin-top: 20px;
   }
-  
+
   .product-details .description h4 {
     margin-bottom: 10px;
   }
-  
+
   .product-details .description p {
     line-height: 1.5;
   }
-  
+
   /* Style for the confirmation message */
   .confirmation-message {
     margin-top: 20px;
   }
-  
+
   /* Style for the delete button */
   .btn-danger {
     background-color: #dc3545;
@@ -243,11 +245,11 @@ table {
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .btn-danger:hover {
     background-color: #c82333;
   }
-  
+
   /* Style for the cancel button */
   .btn-secondary {
     background-color: #6c757d;
@@ -257,7 +259,7 @@ table {
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .btn-secondary:hover {
     background-color: #5a6268;
   }
@@ -268,7 +270,7 @@ table {
     font-weight: bold;
     margin-bottom: 20px;
   }
-  
+
   /* Style for the delete button */
   .btn-danger {
     background-color: #dc3545;
@@ -278,11 +280,11 @@ table {
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .btn-danger:hover {
     background-color: #c82333;
   }
-  
+
   /* Style for the cancel button */
   .btn-secondary {
     background-color: #6c757d;
@@ -292,11 +294,11 @@ table {
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .btn-secondary:hover {
     background-color: #5a6268;
   }
-  
+
   /* Style for the delete button */
 .remove-button {
     background-color: #dc3545;
@@ -308,11 +310,11 @@ table {
     text-decoration: none;
     display: inline-block;
   }
-  
+
   .remove-button:hover {
     background-color: #c82333;
   }
-  
+
   /* Style for the cancel button */
   .cancel-button {
     background-color: #6c757d;
@@ -324,11 +326,11 @@ table {
     text-decoration: none;
     display: inline-block;
   }
-  
+
   .cancel-button:hover {
     background-color: #5a6268;
   }
-  
+
   /* Style for the message */
 .failed-delete {
     background-color: #f8d7da;
@@ -340,5 +342,20 @@ table {
     border-radius: 4px;
   }
 
-  
-  
+.body-newForm{
+  background-image: linear-gradient(135deg, rgba(102, 126, 235, 0.692) 0%, rgba(118, 75, 162, 0.692) 100%),url(https://img.freepik.com/free-photo/rpa-concept-with-blurry-hand-touching-screen_23-2149311914.jpg);
+    width: 100%;
+    height: 650px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+section#footer {
+  position: relative;
+  background: none;
+  bottom:  0;
+}

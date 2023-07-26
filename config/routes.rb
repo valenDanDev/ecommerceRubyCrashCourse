@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'cartUpdate', to: 'carts#_cart'
-  get 'carts', to: 'carts#show'
+  # get 'carts', to: 'products#index'
   get 'category/index'
   get 'products/index'
   get 'examples/index'
@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   delete "/admin/:id", to: "products#destroy", as: "destroy_admin_product"
   get "/admin/:id/delete", to: "products#delete_confirmation", as: "delete_confirmation_admin_product"
   get "/admin/:id/deleteFailed", to: "products#deleteFailed", as: "errorDeleting_admin"
-  
+
 end

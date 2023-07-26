@@ -603,3 +603,8 @@ header .icons #menu-bars{
     gap: 25px;
 }
 
+section#footer {
+    position: relative;
+    background: none;
+    bottom:  0;
+}

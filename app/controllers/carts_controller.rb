@@ -17,8 +17,6 @@ class CartsController < ApplicationController
     else
       @cart.cart_items.create(product: @product, quantity: quantity, subtotal: @product.price * quantity)
     end
-
-    redirect_to carts_path
   end
 
   def remove
