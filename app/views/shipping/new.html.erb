@@ -28,10 +28,11 @@
           <%= form.label :phoneNumber %>
           <%= form.text_field :phoneNumber %>
         </div>
-
+       <%banks_in_colombia = ["Bancolombia", "Davivienda", "Banco de Bogotá", "BBVA Colombia", "Banco Popular", "Banco Caja Social", "Banco de Occidente", "Banco GNB Sudameris", "Banco Itaú", "Banco AV Villas", "Banco Falabella", "Banco Pichincha", "Banco Coomeva", "Banco CorpBanca", "Banco Procredit", "Banco WWB", "Banco Finandina", "Banco Serfinanza", "Bancoomeva"]
+%>
         <div class="form-field-shipping">
           <%= form.label :bank %>
-          <%= form.text_field :bank %>
+          <%= form.select :bank, options_for_select(banks_in_colombia) %>
         </div>
 
         <!-- Add other form fields as needed -->
