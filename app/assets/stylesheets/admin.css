@@ -415,3 +415,39 @@ section#footer-Admin {
   color: #000;
 }
 
+/* Styles for the search form */
+.search-form1 {
+  display: flex;
+  align-items: center;
+}
+
+.search-button1 {
+  background-color: #007bff; /* Blue color, you can change this to your preferred color */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.search-button1:hover {
+  background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+/* Styles for the reset button */
+.reset-button1 {
+  background-color: #dc3545; /* Red color, you can change this to your preferred color */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  background-color: #c82333; /* Darker shade of red on hover */
+}
+
+.form_adminSearch{
+  display: flex;
+}
