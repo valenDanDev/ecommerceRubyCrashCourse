@@ -23,14 +23,16 @@
     <a href="/home">
      <div id="menu-btn" class="fas fa-home"></div>
     </a>
-    <a href="/admin" class="fas fa-user"></a>
+     <a href="/admin?page=1" class="fas fa-user"></a>
     <a href="" class="fas fa-shopping-cart"></a>
   </div>
 </header>
 
 <h3 class="sub-heading">Products</h3>
 <h1 class="heading">Products + Category</h1>
-<%= will_paginate @products %>
+<br>
+<%= will_paginate @products, class: 'custom-pagination' %>
+<br>
 
 <p style="color: green"><%= notice %></p>
 
