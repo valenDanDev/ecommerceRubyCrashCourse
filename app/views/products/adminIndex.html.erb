@@ -26,13 +26,13 @@
 <br>
 <br>
 <div class="form_adminSearch">
-<%= form_tag admin_path, method: :get, class: 'search-form' do %>
+<%= form_tag admin_path, method: :get, class: 'search-form1' do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search products..." %>
-  <%= submit_tag "Search", class: "search-button" %>
+  <%= submit_tag "Search", class: "search-button1" %>
 <% end %>
 
-<%= form_tag admin_path, method: :get, class: 'search-form' do %>
-  <%= submit_tag "Reset", class: "search-button" %>
+<%= form_tag admin_path, method: :get, class: 'search-form1' do %>
+  <%= submit_tag "Reset", class: "search-button1" %>
 <% end %>
 </div>
 
