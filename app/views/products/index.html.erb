@@ -30,7 +30,9 @@
 
 <h3 class="sub-heading">Products</h3>
 <h1 class="heading">Products + Category</h1>
-<%= will_paginate @products %>
+<br>
+<%= will_paginate @products, class: 'custom-pagination' %>
+<br>
 
 <p style="color: green"><%= notice %></p>
 
