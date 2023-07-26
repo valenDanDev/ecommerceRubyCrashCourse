@@ -2,8 +2,11 @@ class ProductsController  < ApplicationController
 
 
   def adminIndex
-    @products = Product.all
-    @products = Product.paginate(page: params[:page], per_page: 10)
+    if params[:search].present?
+      @products = Product.where("name LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 10)
+    else
+      @products = Product.paginate(page: params[:page], per_page: 10)
+    end
   end
      # GET /products
      def index
