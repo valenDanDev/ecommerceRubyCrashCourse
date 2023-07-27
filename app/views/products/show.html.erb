@@ -45,7 +45,6 @@
         <h2>Description</h2>
         <p><%= params[:product_description] %></p>
       </div>
-      <p>id <%= params[:product_id] %></p>
       <div class="buy">
         <div class="priceDetail">
           <sup>$</sup>
@@ -55,7 +54,7 @@
           <%= form_tag carts_add_itemOne_path, method: :post, class: "add-to-cart-form", data: { product_id: params[:product_id] } do %>
             <%= hidden_field_tag :id, params[:product_id]  %>
             <%= submit_tag "Buy" , class: "btnBuy"%>
-          <% end %> 
+          <% end %>
 
       </div>
     </div>

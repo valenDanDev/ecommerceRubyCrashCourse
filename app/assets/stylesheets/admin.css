@@ -133,6 +133,8 @@ table {
 
   /* Styles for the product-details container */
 .product-details {
+  position: relative;
+  top: 140px;
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
