@@ -1,20 +1,35 @@
-<h1>Edit Product</h1>
-<%= form_with model: @product do |form| %>
-<div>
-<%= form.label :name %><br>
-<%= form.text_field :name %>
-<% @product.errors.full_messages_for(:name).each do |message| %>
-<div><%= message %></div>
-<% end %>
-</div>
-<div>
-<%= form.label :description %><br>
-<%= form.text_area :description %>
-<% @product.errors.full_messages_for(:description).each do |message| %>
-<div><%= message %></div>
-<% end %>
-</div>
-<div>
-<%= form.submit %>
-</div>
-<% end %>
+<body class="body-newForm">
+  <div class="form-container">
+    <h1>Edit Product</h1>
+
+    <%= form_with(model: @product, url: update_product_path(@product), method: :patch, local: true) do |form| %>
+      <!-- Form fields and labels -->
+      <div class="form-field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :image_url %>
+        <%= form.text_area :image_url %>
+      </div>
+
+      <div class="form-field">
+        <%= form.label :price %>
+        <%= form.number_field :price, step: 0.01 %>
+      </div>
+
+      <!-- Add other form fields as needed -->
+
+      <!-- Submit button -->
+      <%= form.submit "Update Product", class: 'form-submit' %>
+    <% end %>
+
+    <%= link_to "Back to admin dashboard", admin_path, class: 'back-link' %>
+  </div>
+</body>

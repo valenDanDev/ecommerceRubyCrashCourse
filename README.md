@@ -9,15 +9,15 @@ The objective of this project is to develop an initial version of an online stor
 
 - [X] The project must be shared on GitHub.
 - [X] Each team must choose and state in Discord what kind of goods and/or services they will sell in the store. The choice of such goods or services is at the discretion of each team, and must be different in all cases.
-- [ ] It must be possible to display a list of products for sale. Each product will have a name, description, an image and price.
-- [ ] It must be possible to classify the products by categories.
-- [ ] It must include an appropriate landing page.
-- [ ] It must include a page with relevant information about the store.
-- [ ] All the website must include a logo at the top of the page.
-- [ ] All the website must include a footer with relevant contact and location(s) information.
-- [ ] A shopping cart must be implemented.
-- [ ] The ability to check-out, i.e., to close a purchase, must be provided.
-- [ ] There is no requirement to do anything beyond the check-out process.
-- [ ] No payment gateway or payment methods are required.
+- [X] It must be possible to display a list of products for sale. Each product will have a name, description, an image and price.
+- [X] It must be possible to classify the products by categories.
+- [X] It must include an appropriate landing page.
+- [X] It must include a page with relevant information about the store.
+- [X] All the website must include a logo at the top of the page.
+- [X] All the website must include a footer with relevant contact and location(s) information.
+- [X] A shopping cart must be implemented.
+- [X] The ability to check-out, i.e., to close a purchase, must be provided.
+- [X] There is no requirement to do anything beyond the check-out process.
+- [X] No payment gateway or payment methods are required.
 
 

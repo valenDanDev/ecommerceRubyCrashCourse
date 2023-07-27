@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "style.css" %>
+<%= javascript_include_tag "alert.js" %>
+<h1>Products</h1>
+<%= image_tag "lol.jpg",height:200 %>
+    <ul>
+        <% @products.each do |product| %>
+            <li>
+                <strong><%= product.name %>:</strong>
+                <%= link_to "See more", product %>
+            </li>
+        <% end %>
+    </ul>
+    <%= link_to "New Product", new_product_path %>

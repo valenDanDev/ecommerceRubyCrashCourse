@@ -1,0 +1,79 @@
+<%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<%= stylesheet_link_tag "admin.css" %>
+
+<header class="header">
+
+  <a class="logo">
+    <%# <img src="logo.jpg" /> %>
+    <i class="fas fa-store"></i> TECNO LOVERS
+  </a>
+
+
+  <div class="icons">
+    <a href="/home">
+     <div id="menu-btn" class="fas fa-home"></div>
+    </a>
+    <a href="/admin" class="fas fa-user"></a>
+    <a href="" class="fas fa-shopping-cart"></a>
+  </div>
+</header>
+<br>
+<br>
+<div class="form_adminSearch">
+<%= form_tag admin_path, method: :get, class: 'search-form1' do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search products..." %>
+  <%= submit_tag "Search", class: "search-button1" %>
+<% end %>
+
+<%= form_tag admin_path, method: :get, class: 'search-form1' do %>
+  <%= submit_tag "Reset", class: "search-button1" %>
+<% end %>
+</div>
+
+<!-- Your table and pagination code here -->
+<h1>Admin - All Products</h1> 
+<%= will_paginate @products, params: { page: params[:page] || 1 }, class: 'custom-pagination' %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>#</th> <!-- Add a new column for numeration -->
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% page_number = params[:page].to_i || 1 %>
+    <% products_per_page = 10 %>
+    <% @products.each_with_index do |product, index| %>
+      <% numeration = (page_number - 1) * products_per_page + index + 1 %>
+   
+      <% numeration = 1 if numeration < 1 %> <!-- Ensure numeration is not negative -->
+      <tr>
+        <td><%= numeration %></td> <!-- Display the product number -->
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td>
+          <%= link_to edit_product_path(product), class: 'edit-button' do %>
+            <i class="fa-solid fa-pen-to-square"></i> <!-- Font Awesome edit icon -->
+          <% end %>
+          <%= link_to delete_confirmation_admin_product_path(product), class: 'delete-button' do %>
+            <i class="fa-regular fa-trash-can"></i><!-- Font Awesome delete icon -->
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+
+<%= link_to 'New Product', new_product_path, class: 'new-product-link' %>
+

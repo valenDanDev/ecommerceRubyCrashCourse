@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.bodyDetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #fff,#fff 50%,
+    #5200ff 50%, #5200ff 100%);
+}
+
+.cardDetail{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 380px;
+    background-color: #fff;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.cardDetail{
+    width: 600px;
+}
+
+img {
+    width: 300px;
+    height: auto;
+}
+
+.cardDetail .imgDetail {
+    position: relative;
+    min-width: 0;
+    width: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+img:hover{
+    transform: rotate(-35deg);
+}
+
+.cardDetail .imgDetail img{
+    width: 85%;
+}
+
+.cardDetail .details{
+    position: relative;
+    min-width: 300px;
+    background: #5200ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #fff;
+}
+
+.cardDetail .details::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #fff;
+}
+
+.cardDetail .details .title small{
+    font-weight: 200;
+    font-size: 0.9em;
+}
+
+.cardDetail .details .buy{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardDetail .details .buy .price {
+    font-size: 1.5em;
+}
+
+.cardDetail .details .buy .btnBuy {
+    background: #fff;
+    padding: 1.3em 2.4em;
+    text-transform: uppercase;
+}
+
+.cardDetail .details .buy .btnBuy a {
+    text-decoration: none;
+    color: #5200ff ;
+    font-size: 12px;
+}
+
+
+p {
+    font-size: 15px;
+    font-weight: 100;
+    margin-top: 30px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+span {
+    font-size: 15px;
+}
+
+header.header {
+    position: absolute;
+}

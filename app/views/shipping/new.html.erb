@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag "newShipping.css" %>
+<%= stylesheet_link_tag "admin.css" %>
+<body class="body-newShipping">
+  <div class="shipping">
+    <div id="order-items-container">
+    <%= render 'order/order_items', order: @order %>
+    </div>
+    <div class="form-container-shipping">
+      <h1>New Shipping</h1>
+
+      <%= form_with(model: @shipping, url: shipping_path(order_id: params[:order_id]), local: true) do |form| %>
+        <!-- Form fields and labels -->
+        <div class="form-field-shipping">
+          <%= form.label :fullname %>
+          <%= form.text_field :fullname %>
+        </div>
+
+        <div class="form-field-shipping">
+          <%= form.label :address %>
+          <%= form.text_field :address %>
+        </div>
+
+        <div class="form-field-shipping">
+          <%= form.label :email %>
+          <%= form.email_field :email %>
+        </div>
+
+        <div class="form-field-shipping">
+          <%= form.label :phoneNumber %>
+          <%= form.text_field :phoneNumber %>
+        </div>
+       <%banks_in_colombia = ["Bancolombia", "Davivienda", "Banco de Bogotá", "BBVA Colombia", "Banco Popular", "Banco Caja Social", "Banco de Occidente", "Banco GNB Sudameris", "Banco Itaú", "Banco AV Villas", "Banco Falabella", "Banco Pichincha", "Banco Coomeva", "Banco CorpBanca", "Banco Procredit", "Banco WWB", "Banco Finandina", "Banco Serfinanza", "Bancoomeva"]
+%>
+        <div class="form-field-shipping">
+          <%= form.label :bank %>
+          <%= form.select :bank, options_for_select(banks_in_colombia) %>
+        </div>
+
+        <!-- Add other form fields as needed -->
+
+        <!-- Submit button -->
+        <%= form.submit "Create Shipping", class: 'new-product-link'  %>
+      <% end %>
+    </div>
+
+    <section class="footer-shipping">
+      <div class="credit"> Created by Stiwar Salazar & Daniel Valencia | All rights reserved &copy; <?php echo date('Y')?> </div>
+    </section>
+  </div>
+</body>
+
+
+
+
+
+
+
