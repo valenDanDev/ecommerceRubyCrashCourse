@@ -24,7 +24,7 @@
     transition: 0.5s;
 }
 
-.cardDetail{
+.cardDetail:hover{
     width: 600px;
 }
 
