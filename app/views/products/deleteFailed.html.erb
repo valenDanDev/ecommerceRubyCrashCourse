@@ -1,16 +1,18 @@
+<%= stylesheet_link_tag "admin.css" %>
+<body class="body-newForm">
+  <div class="product-details">
+  <h1>Error while trying to delete Product</h1>
+    <h4>Name: </h3>
+    <p><%= @product_name %></p>
+    <div class="description">
+      <h4>Description</h4>
+      <p><%= @product_description %></p>
+    </div>
+    <p class="failed-delete">You can not delete a product who has been already ordered by a client</p>
 
-<div class="product-details">
-<h1>Error while trying to delete Product</h1>
-  <h4>Name: </h3>
-  <p><%= @product_name %></p>
-  <div class="description">
-    <h4>Description</h4>
-    <p><%= @product_description %></p>
+  <%= link_to "Back to admin dashboard", admin_path, class: 'back-link' %>
   </div>
-  <p class="failed-delete">You can not delete a product who has been already ordered by a client</p>
-
- <%= link_to "Back to admin dashboard", admin_path, class: 'back-link' %>
-</div>
+</body>
 
 
 
