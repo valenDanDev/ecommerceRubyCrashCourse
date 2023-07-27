@@ -24,7 +24,7 @@
     transition: 0.5s;
 }
 
-.cardDetail:hover {
+.cardDetail{
     width: 600px;
 }
 
@@ -93,11 +93,29 @@ img:hover{
 
 .cardDetail .details .buy .btnBuy {
     background: #fff;
-    padding: 0.5em 0.8em;
+    padding: 1.3em 2.4em;
     text-transform: uppercase;
 }
 
 .cardDetail .details .buy .btnBuy a {
     text-decoration: none;
     color: #5200ff ;
+    font-size: 12px;
+}
+
+
+p {
+    font-size: 15px;
+    font-weight: 100;
+    margin-top: 30px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+span {
+    font-size: 15px;
+}
+
+header.header {
+    position: absolute;
 }

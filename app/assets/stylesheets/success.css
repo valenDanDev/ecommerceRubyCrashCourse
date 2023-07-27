@@ -105,14 +105,14 @@
     justify-content: space-evenly;
 }
 
-p {
+/* p {
     text-align: left;
     font-size: 20px;
     color: #2720f6;
     font-weight: 600;
     margin-bottom: 15px;
     margin-left: 50px;
-}
+} */
 
 .btn{
     margin-top: 1rem;

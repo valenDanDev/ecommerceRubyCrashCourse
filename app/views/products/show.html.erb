@@ -10,18 +10,39 @@
 
 </div>-->
 <%= stylesheet_link_tag "productDetail.css" %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body class="bodyDetail">
+  <header class="header">
+    <a class="logo">
+      <%# <img src="logo.jpg" /> %>
+      <i class="fas fa-store"></i> TECNO LOVERS
+    </a>
+
+    <form action="<%= products_path %>" class="search-form">
+      <input type="search" name="search" id="search-box" placeholder="Search here...">
+      <button type="submit" class="search-button"><label for="search-box" class="fas fa-search"></label></button>
+    </form>
+
+    <div class="icons">
+      <a href="/home">
+      <div id="menu-btn" class="fas fa-home"></div>
+      </a>
+      <a href="/admin?page=1" class="fas fa-user"></a>
+      <a href="" class="fas fa-shopping-cart"></a>
+    </div>
+  </header>
   <div class="cardDetail">
     <div class="imgDetail"></div>
       <%= image_tag params[:image_url], alt: "" %>
     <div class="details">
       <div class="title">
-        <h3><%= params[:product_name] %><br>
+        <h2><%= params[:product_name] %><br>
           <small>Lenovo</small>
-        </h3>
+        </h2>
       </div>
       <div class="description">
-        <h4>Description</h4>
+        <h2>Description</h2>
         <p><%= params[:product_description] %></p>
       </div>
       <div class="buy">

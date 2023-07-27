@@ -450,4 +450,12 @@ section#footer-Admin {
 
 .form_adminSearch{
   display: flex;
+  position: relative;
+  top: 40px;
+  left: 10px;
+}
+
+span.previous_page.disabled {
+  width: 73px;
+  font-size: 9px;
 }

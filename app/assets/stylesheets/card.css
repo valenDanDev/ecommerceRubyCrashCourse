@@ -24,7 +24,7 @@
 
 .intro{
     height: 70px;
-    width: 300px;
+    width: 236px;
     position: relative;
     box-sizing: border-box;
     background: #5200ff;
@@ -37,11 +37,12 @@ h1{
     font-size: 30px;
 }
 
-/* p{
-    font-size: 20px;
-    margin: 20px;
-    /*visibility: hidden;
-    opacity: 0;*/
+p{
+    font-weight: 100;
+    margin-top: 8px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
 
 .product-card:hover{
     cursor: pointer;
@@ -91,4 +92,18 @@ section#products {
 .box:hover {
     box-shadow: 0 0 10px #6660;
     scale: 1.05;
+}
+
+form.add-to-cart-form {
+    width: 95px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input#quantity {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 68px;
+    height: 41px;
+    text-align: center;
 }

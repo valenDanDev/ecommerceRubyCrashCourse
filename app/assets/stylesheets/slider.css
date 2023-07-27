@@ -608,3 +608,7 @@ section#footer {
     background: none;
     bottom:  0;
 }
+
+section#home {
+    margin-top: 40px;
+}
