@@ -42,3 +42,6 @@
     font-weight: bold;
     color: #008000;
 }
+input.btnBuy {
+    cursor: pointer;
+}

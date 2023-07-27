@@ -19,6 +19,20 @@ class CartsController < ApplicationController
     end
   end
 
+  def add_itemOne
+    @product = Product.find_by(id: params[:id])
+    quantity = 1
+    current_orderable = @cart.cart_items.find_by(product_id: @product.id)
+    if current_orderable && quantity > 0
+      current_orderable.update(quantity: quantity, subtotal: @product.price * quantity)
+    elsif quantity <= 0
+      current_orderable.destroy if current_orderable
+    else
+      @cart.cart_items.create(product: @product, quantity: quantity, subtotal: @product.price * quantity)
+    end
+    redirect_to carts_path
+  end
+
   def remove
     cart_item = CartItem.find_by(id: params[:id])
     cart_item.destroy if cart_item
