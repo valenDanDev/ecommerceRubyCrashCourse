@@ -99,3 +99,21 @@
 .cart-total .btn-buy:hover{
     scale: 1.05;
 }
+
+button.fa-solid.fa-trash {
+    position: absolute;
+    right: 30px;
+    top: 60px;
+}
+
+button#close-cart {
+    background: none;
+    position: absolute;
+    right: 30px;
+    top: 35px;
+}
+
+form.update-cart-form {
+    font-size: 15px;
+    margin-bottom: 10px;
+}

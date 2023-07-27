@@ -21,8 +21,8 @@
             <p><%= product[:description] %></p>
           <%= form_tag carts_add_item_path, method: :post, class: "add-to-cart-form", data: { product_id: product.id } do %>
             <%= hidden_field_tag :id, product.id %>
-            <%= number_field_tag :quantity, 0, min: 1 %>
             <%= submit_tag "Add To Cart" , class: "btn add-to-cart-btn"%>
+             <%= number_field_tag :quantity, 0, min: 1 %>
           <% end %>
           <span class="price">$<%= product[:price] %></span>
           </div>
