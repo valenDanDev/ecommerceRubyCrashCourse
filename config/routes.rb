@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   get 'cartUpdate', to: 'carts#_cart'
-  # get 'carts', to: 'products#index'
+  get 'carts', to: 'products#index'
   get 'category/index'
   get 'products/index'
   get 'examples/index'
   post 'carts/add_item'
+  post 'carts/add_itemOne'
   post 'carts/remove'
 
   resources :order, only: [:new, :create]

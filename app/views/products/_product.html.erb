@@ -5,7 +5,7 @@
           <div class="image">
           <%= image_tag product[:image_url], alt: "" %>
           <%= link_to product_path(product, image_url: product[:image_url], product_name: product[:name],
-          product_description: product[:description], product_price: product[:price]), class: "fas fa-eye" do %>
+          product_description: product[:description], product_price: product[:price], product_id: product[:id]), class: "fas fa-eye" do %>
             <%= "" %>
           <% end %>
           </div>
