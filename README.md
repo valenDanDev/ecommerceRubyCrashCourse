@@ -20,4 +20,10 @@ The objective of this project is to develop an initial version of an online stor
 - [X] There is no requirement to do anything beyond the check-out process.
 - [X] No payment gateway or payment methods are required.
 
+Extra requirements
+- [X] The website contains an admin section 
+- [X] Is possible to search products
+- [X] Is possible to  create,edit and delete a product in admin section
+- [X] The website contains pagination 
+
 
